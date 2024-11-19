@@ -2,6 +2,8 @@
 
 [Demo](https://rainne.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7ee21c14-fd1b-4d85-9d11-7d5bcb283dc6/deploy-status)](https://rainne.netlify.app)
+
 ## Outil d'encodage
 
 TODO

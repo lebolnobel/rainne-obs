@@ -1,6 +1,6 @@
 {
   "name": "rainnes-obs",
-  "description": "Application d'encodage pour le Sauvetage des batraciens, Natagora",
+  "description": "Application d'encodage pour l'opération Sauvetage des batraciens, organisé par Natagora",
   "private": true,
   "version": "1.0.0",
   "type": "module",
