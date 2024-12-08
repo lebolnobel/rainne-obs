@@ -30,7 +30,7 @@ const ErrorPage = (): React.ReactNode => {
           </p>
           <NavLink
             to="../"
-            className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora-100"
+            className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora/30"
           >
             Retour
           </NavLink>

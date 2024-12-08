@@ -5,6 +5,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RainneApp from './app/RainneApp';
 import ErrorPage from './app/components/ErrorPage';
 import Home from './app/components/Home';
+import Obs from './app/components/Obs';
+import Species from './app/components/Species';
+import Learn from './app/components/Learn';
+import Resources from './app/components/Resources';
+import About from './app/components/About';
 
 import './styles/styles.css';
 
@@ -18,6 +23,26 @@ const router = createBrowserRouter(
         {
           path: '/',
           element: <Home />,
+        },
+        {
+          path: '/obs',
+          element: <Obs />,
+        },
+        {
+          path: '/species/:species',
+          element: <Species />,
+        },
+        {
+          path: 'learn',
+          element: <Learn />,
+        },
+        {
+          path: 'resources',
+          element: <Resources />,
+        },
+        {
+          path: 'about',
+          element: <About />,
         },
       ],
     },
