@@ -31,7 +31,7 @@ const Footer = (): React.ReactNode => {
         Une erreur ? Une idée ? Contribuez au projet sur{' '}
         <a
           href="https://github.com/lebolnobel/rainne-obs"
-          title={'Github, rainne-obes'}
+          title="Github, rainne-obs"
           className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
         >
           GitHub
