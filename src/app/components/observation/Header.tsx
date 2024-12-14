@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Switcher from './components/Switcher';
+import Modal from './components/Modal';
 import {
   GoArrowLeft,
   GoArrowRight,
@@ -19,51 +20,39 @@ import {
 } from 'react-icons/ti';
 import { currentDate } from '../../../utils/date';
 import { MIGRATION } from '../../../utils/constants';
-import type { Species } from '../../../utils/species';
+import {
+  defaultSpeciesCounter,
+  type SpeciesCounterType,
+} from '../../../utils/species';
 import type { MigrationType } from '../../../utils/constants';
 
 type HeaderProps = {
-  species: Species[];
+  counters: SpeciesCounterType;
   migration: MigrationType;
   setMigration: (key: MigrationType) => void;
+  setCounters: (value: SpeciesCounterType) => void;
 };
 
 const Header = (props: HeaderProps): React.ReactNode => {
-  const { species, migration, setMigration } = props;
+  const { counters, migration, setMigration, setCounters } = props;
 
-  const total = species.reduce((acc, animal) => {
-    const countsSum = Object.values(animal.counts).reduce(
-      (subTotal, subObject) => {
-        return (
-          subTotal +
-          Object.values(subObject).reduce((sum, value) => sum + value, 0)
-        );
-      },
-      0,
-    );
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
-    return acc + countsSum;
-  }, 0);
+  function computerCounter(
+    counters: SpeciesCounterType,
+    migration: MigrationType,
+  ): number {
+    return Object.values(counters).reduce((total, species) => {
+      return (
+        total +
+        Object.values(species[migration]).reduce((acc, value) => acc + value, 0)
+      );
+    }, 0);
+  }
 
-  const totalAller = species.reduce(
-    (acc, s) =>
-      acc +
-      Object.values(s.counts[MIGRATION.ALLER]).reduce(
-        (sum, count) => sum + count,
-        0,
-      ),
-    0,
-  );
-
-  const totalRetour = species.reduce(
-    (acc, s) =>
-      acc +
-      Object.values(s.counts[MIGRATION.RETOUR]).reduce(
-        (sum, count) => sum + count,
-        0,
-      ),
-    0,
-  );
+  const totalAller: number = computerCounter(counters, MIGRATION.ALLER);
+  const totalRetour: number = computerCounter(counters, MIGRATION.RETOUR);
+  const total: number = totalAller + totalRetour;
 
   const actions = [
     {
@@ -124,45 +113,45 @@ const Header = (props: HeaderProps): React.ReactNode => {
                 type="submit"
                 title="Nouvelle session d'encodage"
                 className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+                onClick={() => {
+                  setIsOpen(true);
+                }}
               >
                 <GoPlusCircle
                   role="presentation"
                   size="24"
                   title="Nouvelle session d'encodage"
                   className="text-gray-50 inline-flex"
-                  onClick={() => {
-                    alert('New');
-                  }}
                 />
               </button>
               <button
                 type="submit"
                 title="Synchroniser vos données"
                 className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+                onClick={() => {
+                  alert('Sync');
+                }}
               >
                 <GoSync
                   role="presentation"
                   size="24"
                   title="Synchroniser vos données"
                   className="text-gray-50 inline-flex"
-                  onClick={() => {
-                    alert('Sync');
-                  }}
                 />
               </button>
               <button
                 type="submit"
                 title="Téléchager vos données"
                 className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+                onClick={() => {
+                  alert('Download');
+                }}
               >
                 <GoDownload
                   role="presentation"
                   size="24"
                   title="Téléchager vos données"
                   className="text-gray-50 inline-flex"
-                  onClick={() => {
-                    alert('Download');
-                  }}
                 />
               </button>
             </div>
@@ -190,6 +179,14 @@ const Header = (props: HeaderProps): React.ReactNode => {
         <div className="mt-8">
           <Switcher migration={migration} setMigration={setMigration} />
         </div>
+      </div>
+
+      <div className="relative">
+        <Modal
+          isOpen={isOpen}
+          onChange={() => setCounters(defaultSpeciesCounter)}
+          onClose={() => setIsOpen(false)}
+        />
       </div>
     </div>
   );
