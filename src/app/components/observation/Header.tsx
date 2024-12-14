@@ -1,6 +1,13 @@
 import * as React from 'react';
 import Switcher from './components/Switcher';
-import { GoArrowLeft, GoArrowRight, GoCalendar, GoSync } from 'react-icons/go';
+import {
+  GoArrowLeft,
+  GoArrowRight,
+  GoCalendar,
+  GoDownload,
+  GoPlusCircle,
+  GoSync,
+} from 'react-icons/go';
 import { TbTemperatureCelsius } from 'react-icons/tb';
 import {
   TiWeatherShower,
@@ -92,7 +99,9 @@ const Header = (props: HeaderProps): React.ReactNode => {
   ];
 
   return (
-    <div className="relative p-6 mb-8 bg-gradient-to-r from-slate-500 via-gray-500 to-slate-600">
+    <div
+      className={`relative p-6 mb-8 ${migration === MIGRATION.ALLER ? 'bg-gradient-to-r from-slate-500 via-gray-500 to-slate-700' : 'bg-gradient-to-r from-gray-700 via-slate-500 to-slate-600'}`}
+    >
       <div className="max-w-screen-sm mx-auto">
         <div className="absolute -right-1 -top-2 text-gray-400 z-0 text-7xl opacity-25">
           SB-043
@@ -100,41 +109,73 @@ const Header = (props: HeaderProps): React.ReactNode => {
         <h3 className="text-slate-200 uppercase my-2">
           Sauvetage des batraciens
         </h3>
-        <div className="flex place-content-between">
-          <div className="mb-6">
-            <span className="text-sm font-normal uppercase text-gray-400">
+        <div className="flex place-content-between mb-6">
+          <div className="basis-1/2 truncate text-gray-400">
+            <span className="text-sm font-normal uppercase">
               Nombre total d'observations
             </span>
             <div className="text-5xl font-semibold -mt-2 text-gray-50">
               {total}
             </div>
           </div>
-          <div className="items-end ">
-            <button
-              type="submit"
-              title="Synchroniser vos données"
-              className="shadow-card w-12 h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
-            >
-              <GoSync
-                role="presentation"
-                size="24"
+          <div className="flex basis-1/2 justify-end">
+            <div className="space-x-2 sm:space-x-4">
+              <button
+                type="submit"
+                title="Nouvelle session d'encodage"
+                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+              >
+                <GoPlusCircle
+                  role="presentation"
+                  size="24"
+                  title="Nouvelle session d'encodage"
+                  className="text-gray-50 inline-flex"
+                  onClick={() => {
+                    alert('New');
+                  }}
+                />
+              </button>
+              <button
+                type="submit"
                 title="Synchroniser vos données"
-                className="text-gray-50 inline-flex"
-                onClick={() => {
-                  alert('Sync');
-                }}
-              />
-            </button>
+                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+              >
+                <GoSync
+                  role="presentation"
+                  size="24"
+                  title="Synchroniser vos données"
+                  className="text-gray-50 inline-flex"
+                  onClick={() => {
+                    alert('Sync');
+                  }}
+                />
+              </button>
+              <button
+                type="submit"
+                title="Téléchager vos données"
+                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+              >
+                <GoDownload
+                  role="presentation"
+                  size="24"
+                  title="Téléchager vos données"
+                  className="text-gray-50 inline-flex"
+                  onClick={() => {
+                    alert('Download');
+                  }}
+                />
+              </button>
+            </div>
           </div>
         </div>
         <div className="flex justify-between">
           {actions.map((action) => (
             <div
               key={action.label}
-              className="flex flex-col text-center items-center gap-2 w-1/5 transition-all cursor-pointer hover:scale-105 hover:opacity-90"
+              className="flex flex-col text-center items-center gap-2 w-1/5 transition-all cursor-pointer hover:scale-110 hover:opacity-90"
               onClick={action.action}
             >
-              <div className="bg-natagora/60 p-3 rounded-full text-white p-1 rounded-full ">
+              <div className="bg-natagora/60 p-3 rounded-full text-white p-1 rounded-full">
                 <action.icon className="w-5 h-5" />
               </div>
               <div className="flex flex-col">

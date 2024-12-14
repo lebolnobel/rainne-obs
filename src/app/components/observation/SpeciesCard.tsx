@@ -64,14 +64,17 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
                 className="p-1 rounded-full bg-white/20 hover:bg-white/30"
                 title="Plus d'informations"
               >
-                <FaInfoCircle className="w-4 h-4 text-white" />
+                <FaInfoCircle
+                  role="presentation"
+                  className="w-4 h-4 text-white"
+                />
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="space-y-3 mx-2">
+      <div className="space-y-3 mx-2 sm:mx-6">
         <ul role="list">
           <li className="py-2">
             <Counter
@@ -108,7 +111,10 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
               label="Écrasés"
               count={counts.roadKill}
               icon={
-                <FaCar className="inline-flex bg-natagora/10 text-natagora min-w-8 h-8 p-2 rounded-full" />
+                <FaCar
+                  role="presentation"
+                  className="inline-flex bg-natagora/10 text-natagora min-w-8 h-8 p-2 rounded-full"
+                />
               }
               onChange={(value) => handleUpdate('roadKill', value)}
             />

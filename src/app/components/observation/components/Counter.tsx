@@ -41,7 +41,7 @@ const Counter = (props: CounterType): React.ReactNode => {
 
       <div className="flex items-center gap-2">
         <CounterButton onClick={() => onChange(count - 1)}>
-          <FaMinus className="text-natagora" />
+          <FaMinus role="presentation" className="text-natagora" />
         </CounterButton>
 
         {isEditing ? (
@@ -68,7 +68,7 @@ const Counter = (props: CounterType): React.ReactNode => {
           </button>
         )}
         <CounterButton onClick={() => onChange(count + 1)}>
-          <FaPlus className="text-natagora" />
+          <FaPlus role="presentation" className="text-natagora" />
         </CounterButton>
       </div>
     </div>
