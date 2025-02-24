@@ -1,20 +1,29 @@
 import * as React from 'react';
-import Header from './observation/Header';
+import ObsHeader from './observation/Header';
 import SpeciesCard from './observation/SpeciesCard';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { species, defaultSpeciesCounter } from '../../utils/species';
 import { MIGRATION } from '../../utils/constants';
 import type { SpeciesCounterType } from '../../utils/species';
-import type { MigrationType } from '../../utils/constants';
+import type { MigrationType, WeatherType } from '../../utils/constants';
 
 const Obs = (): React.ReactNode => {
   const [counters, setCounters] = useLocalStorage<SpeciesCounterType>(
     'counters',
     defaultSpeciesCounter,
   );
+  const [weather, setWeather] = useLocalStorage<WeatherType>('weather', {
+    rain: 'damp',
+    wind: 'no-wind',
+    temperature: 10,
+  });
   const [migration, setMigration] = React.useState<MigrationType>(
     MIGRATION.ALLER,
   );
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   const handleUpdate = (speciesId: string, type: string, value: number) => {
     setCounters({
@@ -30,15 +39,17 @@ const Obs = (): React.ReactNode => {
   };
 
   return (
-    <div className="mt-0">
-      <Header
+    <>
+      <ObsHeader
         counters={counters}
+        weather={weather}
         migration={migration}
         setMigration={setMigration}
         setCounters={setCounters}
+        setWeather={setWeather}
       />
 
-      <div className="mx-auto block px-10 py-6 md:rounded-lg shadow-sm">
+      <section className="mx-auto block px-10 py-6 md:rounded-lg shadow-sm">
         <div className="w-full mx-auto grid grid-cols-1 xl:grid-cols-2 gap-6 space-y-6 sm:space-y-0">
           {Object.keys(species).map((s) => (
             <SpeciesCard
@@ -52,8 +63,8 @@ const Obs = (): React.ReactNode => {
             />
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 

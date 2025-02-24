@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Home = (): React.ReactNode => {
   return (
     <div className="container px-10 py-6 mx-auto md:rounded-lg shadow-sm text-gray-800 bg-gray-50">
-      <div className="mx-auto block" role="main">
+      <section className="mx-auto block">
         <h2 className="text-slate-500 uppercase">
           Application d'encodage pour l'opération de sauvetage
         </h2>
@@ -18,6 +18,7 @@ const Home = (): React.ReactNode => {
               className="absolute inset-0 w-full object-cover"
               loading="lazy"
             />
+            <figcaption className="sr-only">Raînne</figcaption>
           </figure>
           <div className="flex-auto px-6">
             <div className="flex flex-wrap">
@@ -25,14 +26,19 @@ const Home = (): React.ReactNode => {
                 Bienvenue
               </h3>
               <div className="w-full flex-none text-base">
-                Curabitur hendrerit libero a finibus posuere. In fringilla leo
-                eget varius convallis. Donec orci tortor, vulputate quis ante
-                non, dictum tempus massa. Duis convallis nisi purus, vel porta
-                nisi tincidunt non. Proin consectetur, magna vel viverra
-                suscipit, diam quam molestie dolor, vitae lacinia dolor massa in
-                ex. Vestibulum laoreet ligula at nulla feugiat, a faucibus
-                ligula congue. Mauris ullamcorper id metus sit amet iaculis.
-                Cras ut pharetra urna, quis fringilla elit.
+                <p className="pb-2">
+                  Aidez-vous lors de l'encodage sur le terrain ! Cette
+                  application vous permet en quelques clics de garder le compte
+                  des individus que vous avez croisé lors de vos soirées
+                  pluvieuses. Une fois rentré au chaud, vous pourrez reporter
+                  les observations dans le projet de votre site, sur
+                  Observations.be.
+                </p>
+                <p>
+                  N'oubliez pas de démarrer une nouvelle session lors d'un
+                  nouveau comptage. Cliquez sur le "+" en haut à droite dans
+                  l'onglet "Encoder".
+                </p>
               </div>
             </div>
 
@@ -43,15 +49,9 @@ const Home = (): React.ReactNode => {
                     Kesako ?
                   </h3>
                   <p>
-                    Curabitur hendrerit libero a finibus posuere. In fringilla
-                    leo eget varius convallis. Donec orci tortor, vulputate quis
-                    ante non, dictum tempus massa. Duis convallis nisi purus,
-                    vel porta nisi tincidunt non. Proin consectetur, magna vel
-                    viverra suscipit, diam quam molestie dolor, vitae lacinia
-                    dolor massa in ex. Vestibulum laoreet ligula at nulla
-                    feugiat, a faucibus ligula congue. Mauris ullamcorper id
-                    metus sit amet iaculis. Cras ut pharetra urna, quis
-                    fringilla elit.
+                    Cette application permet aux bénévoles de comptabiliser les
+                    batraciens rencontrés lors des sauvetages. Il s'agit d'un
+                    bloc note numérique qui est toujours dans notre poche.
                   </p>
                 </div>
               </div>
@@ -72,7 +72,7 @@ const Home = (): React.ReactNode => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

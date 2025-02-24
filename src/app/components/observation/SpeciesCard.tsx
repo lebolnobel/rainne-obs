@@ -35,7 +35,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
     <div className="rounded-md overflow-hidden w-full bg-gray-100">
       <div
         className="relative h-48 group overflow-hidden cursor-pointer"
-        onClick={() => navigate(`../species/${id}`)}
+        onClick={() => navigate(`/species/${id}`)}
       >
         <img
           src={imageUrl}
@@ -47,13 +47,13 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="flex items-center justify-between text-gray-200 hover:text-white">
               <div>
-                <h2 className="text-xl font-semibold">{species}</h2>
-                <div className="flex text-md italic flex flex-wrap">
+                <h3 className="text-xl font-semibold">{species}</h3>
+                <div className="flex italic flex flex-wrap">
                   <span>
                     {scientificName}
                     <GoDotFill
                       role="presentation"
-                      size="6px"
+                      size="6"
                       className="mx-3 my-2 text-gray-400 inline-flex"
                     />
                   </span>

@@ -23,10 +23,10 @@ const Counter = (props: CounterType): React.ReactNode => {
     setInputValue(newValue.toString());
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === 'Space') {
       handleBlur();
-    } else if (e.key === 'Escape') {
+    } else if (event.key === 'Escape') {
       setIsEditing(false);
       setInputValue(count.toString());
     }

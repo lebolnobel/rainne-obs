@@ -2,43 +2,48 @@ import * as React from 'react';
 import Switcher from './components/Switcher';
 import Modal from './components/Modal';
 import {
-  GoArrowLeft,
-  GoArrowRight,
   GoCalendar,
-  GoDownload,
+  // GoDownload,
+  // GoGear,
+  GoNumber,
   GoPlusCircle,
-  GoSync,
 } from 'react-icons/go';
 import { TbTemperatureCelsius } from 'react-icons/tb';
-import {
-  TiWeatherShower,
-  // TiWeatherCloudy,
-  // TiWeatherCloudy,
-  // TiWeatherNight,
-  // TiWeatherWindyCloudy,
-  // TiWeatherStormy,
-} from 'react-icons/ti';
+import { TiWeatherShower } from 'react-icons/ti';
+import TemperaturePicker from './components/TemperaturePicker';
+import WeatherPicker from './components/WeatherPicker';
 import { currentDate } from '../../../utils/date';
-import { MIGRATION } from '../../../utils/constants';
+import { MIGRATION, Rain, Weather, Wind } from '../../../utils/constants';
 import {
   defaultSpeciesCounter,
   type SpeciesCounterType,
 } from '../../../utils/species';
-import type { MigrationType } from '../../../utils/constants';
+import type { MigrationType, WeatherType } from '../../../utils/constants';
 
-type HeaderProps = {
+type ObsHeaderProps = {
   counters: SpeciesCounterType;
+  weather: WeatherType;
   migration: MigrationType;
   setMigration: (key: MigrationType) => void;
   setCounters: (value: SpeciesCounterType) => void;
+  setWeather: (value: WeatherType) => void;
 };
 
-const Header = (props: HeaderProps): React.ReactNode => {
-  const { counters, migration, setMigration, setCounters } = props;
+const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
+  const {
+    counters,
+    weather,
+    migration,
+    setMigration,
+    setCounters,
+    setWeather,
+  } = props;
 
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [modal, setModal] = React.useState<null | 'session' | 'weather'>(null);
 
-  function computerCounter(
+  console.log(weather);
+
+  function totalCounter(
     counters: SpeciesCounterType,
     migration: MigrationType,
   ): number {
@@ -50,50 +55,66 @@ const Header = (props: HeaderProps): React.ReactNode => {
     }, 0);
   }
 
-  const totalAller: number = computerCounter(counters, MIGRATION.ALLER);
-  const totalRetour: number = computerCounter(counters, MIGRATION.RETOUR);
+  function handleWeatherChange<T>(key: string, value: T) {
+    setWeather({
+      ...weather,
+      [key]: value,
+    });
+  }
+
+  const totalAller: number = totalCounter(counters, MIGRATION.ALLER);
+  const totalRetour: number = totalCounter(counters, MIGRATION.RETOUR);
   const total: number = totalAller + totalRetour;
 
   const actions = [
+    // {
+    //   icon: GoArrowRight,
+    //   label: 'Aller',
+    //   value: totalAller,
+    //   action: () => setMigration(MIGRATION.ALLER),
+    // },
+    // {
+    //   icon: GoArrowLeft,
+    //   label: 'Retour',
+    //   value: totalRetour,
+    //   action: () => setMigration(MIGRATION.RETOUR),
+    // },
     {
-      icon: GoArrowRight,
-      label: 'Aller',
-      value: totalAller,
-      action: () => setMigration(MIGRATION.ALLER),
+      icon: Weather[weather.wind].icon,
+      label: 'Vent',
+      value: Weather[weather.wind].name,
+      action: () => setModal('weather'),
     },
     {
-      icon: GoArrowLeft,
-      label: 'Retour',
-      value: totalRetour,
-      action: () => setMigration(MIGRATION.RETOUR),
-    },
-    {
-      icon: TiWeatherShower,
+      icon: Weather[weather.rain].icon,
       label: 'Météo',
-      value: 'Pluie',
-      action: () => alert('meteo'),
+      value: Weather[weather.rain].name,
+      action: () => setModal('weather'),
     },
     {
       icon: TbTemperatureCelsius,
-      label: 'T°',
-      value: 7,
-      action: () => alert('temp'),
+      label: 'Temp.',
+      value: weather.temperature,
+      action: () => setModal('weather'),
     },
     {
       icon: GoCalendar,
       label: 'Date',
       value: currentDate(),
-      action: () => alert('date'),
+      action: () => {
+        console.log('Vous ne pouvez pas encore changer la date');
+      },
     },
   ];
 
   return (
     <div
-      className={`relative p-6 mb-8 ${migration === MIGRATION.ALLER ? 'bg-gradient-to-r from-slate-500 via-gray-500 to-slate-700' : 'bg-gradient-to-r from-gray-700 via-slate-500 to-slate-600'}`}
+      className={`mt-0 relative p-6 mb-8 ${migration === MIGRATION.ALLER ? 'bg-gradient-to-r from-slate-500 via-gray-500 to-slate-700' : 'bg-gradient-to-r from-gray-700 via-slate-500 to-slate-600'}`}
     >
       <div className="max-w-screen-sm mx-auto">
         <div className="absolute -right-1 -top-2 text-gray-400 z-0 text-7xl opacity-25">
-          SB-043
+          {/*SB-043*/}
+          ENCODAGE
         </div>
         <h3 className="text-slate-200 uppercase my-2">
           Sauvetage des batraciens
@@ -114,7 +135,7 @@ const Header = (props: HeaderProps): React.ReactNode => {
                 title="Nouvelle session d'encodage"
                 className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
                 onClick={() => {
-                  setIsOpen(true);
+                  setModal('session');
                 }}
               >
                 <GoPlusCircle
@@ -124,18 +145,18 @@ const Header = (props: HeaderProps): React.ReactNode => {
                   className="text-gray-50 inline-flex"
                 />
               </button>
-              <button
+              {/* <button
                 type="submit"
-                title="Synchroniser vos données"
+                title="Paramètres d'encodage"
                 className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
                 onClick={() => {
-                  alert('Sync');
+                  navigate('/settings');
                 }}
               >
-                <GoSync
+                <GoGear
                   role="presentation"
                   size="24"
-                  title="Synchroniser vos données"
+                  title="Paramètres d'encodage"
                   className="text-gray-50 inline-flex"
                 />
               </button>
@@ -153,7 +174,7 @@ const Header = (props: HeaderProps): React.ReactNode => {
                   title="Téléchager vos données"
                   className="text-gray-50 inline-flex"
                 />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -176,20 +197,105 @@ const Header = (props: HeaderProps): React.ReactNode => {
             </div>
           ))}
         </div>
+
         <div className="mt-8">
-          <Switcher migration={migration} setMigration={setMigration} />
+          <Switcher
+            migration={migration}
+            totalAller={totalAller}
+            totalRetour={totalRetour}
+            setMigration={setMigration}
+          />
         </div>
       </div>
 
       <div className="relative">
-        <Modal
-          isOpen={isOpen}
-          onChange={() => setCounters(defaultSpeciesCounter)}
-          onClose={() => setIsOpen(false)}
-        />
+        {modal === 'session' && (
+          <Modal
+            isOpen={true}
+            onChange={() => setCounters(defaultSpeciesCounter)}
+            onClose={() => setModal(null)}
+            header={
+              <>
+                <div className="text-2xl pr-4">
+                  <GoPlusCircle role="presentation" size="24" />
+                </div>
+                <div>
+                  <h3 className="flex-auto text-2xl mr-10 font-medium text-slate-900 uppercase">
+                    Démarrer une nouvelle session ?
+                  </h3>
+                </div>
+              </>
+            }
+            action={'Oui, démarrer une nouvelle session'}
+          >
+            <div className="flex">
+              <GoNumber
+                role="presentation"
+                size="64"
+                className="inline-flex mb-6 basis-1/4"
+              />
+              <p className="text-gray-500 basis-3/4">
+                Vous allez perdre vos données d'encodage, elles n'ont pas été
+                synchronisées. Voulez-vous continuer ? Une nouvelle session
+                débutera selon vos paramètres.
+              </p>
+            </div>
+          </Modal>
+        )}
+
+        {modal === 'weather' && (
+          <Modal
+            isOpen={true}
+            onChange={() => setCounters(defaultSpeciesCounter)}
+            onClose={() => setModal(null)}
+            header={
+              <>
+                <div className="text-2xl pr-4">
+                  <TiWeatherShower role="presentation" size="24" />
+                </div>
+                <div>
+                  <h3 className="flex-auto text-2xl mr-10 font-medium text-slate-900 uppercase">
+                    Météo
+                  </h3>
+                </div>
+              </>
+            }
+          >
+            <div className="px-2">
+              <h4 className="text-lg font-medium text-slate-900 uppercase">
+                Température
+              </h4>
+
+              <TemperaturePicker
+                temperature={weather.temperature}
+                onChange={(value) => handleWeatherChange('temperature', value)}
+              />
+
+              <h4 className="text-lg font-medium text-slate-900 uppercase">
+                Type de précipitations
+              </h4>
+
+              <WeatherPicker
+                value={weather.rain as string}
+                onChange={(value) => handleWeatherChange('rain', value)}
+                opts={Object.keys(Rain)}
+              />
+
+              <h4 className="text-lg font-medium text-slate-900 uppercase">
+                Vent
+              </h4>
+
+              <WeatherPicker
+                value={weather.wind as string}
+                onChange={(value) => handleWeatherChange('wind', value)}
+                opts={Object.keys(Wind)}
+              />
+            </div>
+          </Modal>
+        )}
       </div>
     </div>
   );
 };
 
-export default Header;
+export default ObsHeader;

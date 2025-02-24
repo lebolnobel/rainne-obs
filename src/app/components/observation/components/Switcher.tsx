@@ -5,14 +5,16 @@ import type { MigrationType } from '../../../../utils/constants';
 
 type SwitcherType = {
   migration: MigrationType;
+  totalAller: number;
+  totalRetour: number;
   setMigration: (key: MigrationType) => void;
 };
 
 const Switcher = (props: SwitcherType): React.ReactNode => {
-  const { migration, setMigration } = props;
+  const { migration, totalAller, totalRetour, setMigration } = props;
   return (
     <>
-      <label className="shadow-card relative w-64 mx-auto flex cursor-pointer select-none items-center justify-center rounded-md bg-gray-600 p-1">
+      <label className="shadow-card relative w-80 mx-auto flex cursor-pointer select-none items-center justify-center rounded-md bg-gray-600 p-1">
         <input
           type="checkbox"
           className="sr-only"
@@ -25,6 +27,7 @@ const Switcher = (props: SwitcherType): React.ReactNode => {
             )
           }
         />
+
         <span
           className={`text-center w-full rounded py-2 px-[18px] mr-2 text-sm font-medium transition-all ${
             migration === MIGRATION.ALLER
@@ -32,14 +35,15 @@ const Switcher = (props: SwitcherType): React.ReactNode => {
               : 'text-gray-400 hover:bg-gray-50/10'
           }`}
         >
-          Aller
+          Aller ({totalAller})
           <GoArrowRight
             role="presentation"
-            size="18px"
+            size="18"
             className="ml-[6px] inline-flex"
             title="Migration aller"
           />
         </span>
+
         <span
           className={`text-center w-full rounded py-2 px-[18px] text-sm font-medium ${
             migration === 'retour'
@@ -49,11 +53,11 @@ const Switcher = (props: SwitcherType): React.ReactNode => {
         >
           <GoArrowLeft
             role="presentation"
-            size="18px"
+            size="18"
             className="mr-[6px] inline-flex"
             title="Migration retour"
           />
-          Retour
+          Retour ({totalRetour})
         </span>
       </label>
     </>

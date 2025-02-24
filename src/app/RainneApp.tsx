@@ -8,19 +8,18 @@ const RainneApp = (): React.ReactNode => {
     <>
       <Nav />
 
-      <section className="font-anek flex flex-col items-center">
+      <main className="text-base font-anek flex flex-col items-center">
         <div className="md:py-6 w-full md:w-3/4 lg:w-3/5 xl:2/4 max-w-screen-md">
           <div
-            className="container mx-auto md:rounded-lg overflow-hidden md:shadow-sm text-gray-800 bg-gray-50"
-            role="main"
             id="content"
+            className="container mx-auto md:rounded-lg overflow-hidden md:shadow-sm text-gray-800 bg-gray-50"
           >
             <Outlet />
           </div>
 
           <Footer />
         </div>
-      </section>
+      </main>
     </>
   );
 };

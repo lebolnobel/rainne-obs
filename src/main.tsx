@@ -8,7 +8,7 @@ import Home from './app/components/Home';
 import Obs from './app/components/Obs';
 import Species from './app/components/Species';
 import Learn from './app/components/Learn';
-import Resources from './app/components/Resources';
+import Settings from './app/components/Settings';
 import About from './app/components/About';
 
 import './styles/styles.css';
@@ -37,8 +37,8 @@ const router = createBrowserRouter(
           element: <Learn />,
         },
         {
-          path: 'resources',
-          element: <Resources />,
+          path: 'settings',
+          element: <Settings />,
         },
         {
           path: 'about',

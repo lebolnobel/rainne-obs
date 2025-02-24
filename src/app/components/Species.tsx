@@ -1,27 +1,39 @@
 import * as React from 'react';
+import ErrorPage from './ErrorPage';
+import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router';
+import { species } from '../../utils/species';
+import { GoArrowLeft } from 'react-icons/go';
 
 const Species = (): React.ReactNode => {
-  const { species } = useParams();
+  const { species: currentSpecies } = useParams();
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [currentSpecies]);
+
+  if (
+    !currentSpecies ||
+    !Object.prototype.hasOwnProperty.call(species, currentSpecies)
+  )
+    return <ErrorPage />;
+
+  const sp = species[currentSpecies];
 
   return (
     <div className="container px-10 py-6 mx-auto md:rounded-lg shadow-sm text-gray-800 bg-gray-50">
-      <div className="mx-auto block" role="main">
-        <h2 className="text-slate-500 uppercase">Species</h2>
+      <section className="mx-auto block">
+        <h2 className="text-slate-500 uppercase">Nos espèces de batraciens</h2>
+
+        <p>En cours de construction</p>
 
         <div className="flex pt-10">
           <div className="flex-auto">
-            <h3 className="flex-auto text-2xl font-medium text-slate-900 uppercase">
-              Bonjour, {species}
-            </h3>
-
             <div className="rounded-md overflow-hidden w-full bg-gray-100">
               <div className="relative h-48 group overflow-hidden">
                 <img
-                  src={
-                    '/assets/img/species/csm_Triton_crete_4_F._Gries_fe2d23cc21.jpg'
-                  }
-                  alt={species}
+                  src={sp.imageUrl}
+                  alt={sp.name}
                   className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-125"
                 />
 
@@ -29,10 +41,9 @@ const Species = (): React.ReactNode => {
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <div className="flex items-center justify-between text-gray-200 hover:text-white">
                       <div>
-                        <h2 className="text-xl font-semibold">{species}</h2>
-                        <div className="flex text-md italic flex flex-wrap">
-                          <span>{species}</span>
-                          <span>observations</span>
+                        <h3 className="text-xl font-semibold">{sp.name}</h3>
+                        <div className="flex italic flex flex-wrap">
+                          <span>{sp.scientificName}</span>
                         </div>
                       </div>
                     </div>
@@ -158,9 +169,20 @@ const Species = (): React.ReactNode => {
                 </div>
               </div>
             </div>
+
+            <div className="mx-auto text-center space-x-4 mt-6 text-base font-medium">
+              <NavLink
+                to="/obs"
+                title="Revenir à mes observations"
+                className="px-6 py-2 inline-flex font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora/40"
+              >
+                <GoArrowLeft role="presentation" size="24" className="mr-2" />
+                Revenir à mes observations
+              </NavLink>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

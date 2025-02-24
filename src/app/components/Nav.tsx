@@ -15,10 +15,10 @@ const Nav = (): React.ReactNode => {
     `block py-2 px-3 rounded text-natagora ${isActive ? 'text-white bg-natagora' : 'md:hover:bg-gray-100 md:hover:text-natagora'}  focus:outline-none focus:ring-2 focus:ring-natagora/30`;
 
   return (
-    <nav className="bg-gray-50 border-gray-200" role="banner">
+    <nav className="text-base bg-gray-50 border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <NavLink
-          to="../"
+          to="/"
           className="flex items-center space-x-3 relative focus:outline-none focus:ring-2 focus:ring-natagora/30"
         >
           <img
@@ -68,7 +68,7 @@ const Nav = (): React.ReactNode => {
           <ul className="font-medium flex flex-col p-4 mt-4 md:flex-row md:space-x-4 lg:space-x-8 rtl:space-x-reverse md:p-0 md:mt-0 md:border-0">
             <li className="relative">
               <NavLink
-                to="../"
+                to="/"
                 className={({ isActive }) => className(isActive)}
                 title="Accueil"
               >
@@ -77,7 +77,7 @@ const Nav = (): React.ReactNode => {
             </li>
             <li className="relative">
               <NavLink
-                to="../obs"
+                to="/obs"
                 className={({ isActive }) => className(isActive)}
                 title="Encoder une nouvelle observation"
               >
@@ -91,7 +91,7 @@ const Nav = (): React.ReactNode => {
             </li>
             <li className="relative">
               <NavLink
-                to="../learn"
+                to="/learn"
                 className={({ isActive }) => className(isActive)}
                 title="Apprendre"
               >
@@ -100,16 +100,7 @@ const Nav = (): React.ReactNode => {
             </li>
             <li className="relative">
               <NavLink
-                to="../resources"
-                className={({ isActive }) => className(isActive)}
-                title="Ressources"
-              >
-                Ressources
-              </NavLink>
-            </li>
-            <li className="relative">
-              <NavLink
-                to="../about"
+                to="/about"
                 className={({ isActive }) => className(isActive)}
                 title="À propos"
               >
