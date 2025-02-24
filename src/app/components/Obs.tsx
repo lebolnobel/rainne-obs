@@ -3,7 +3,7 @@ import ObsHeader from './observation/Header';
 import SpeciesCard from './observation/SpeciesCard';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { species, defaultSpeciesCounter } from '../../utils/species';
-import { MIGRATION } from '../../utils/constants';
+import { defaultWeather, MIGRATION } from '../../utils/constants';
 import type { SpeciesCounterType } from '../../utils/species';
 import type { MigrationType, WeatherType } from '../../utils/constants';
 
@@ -12,11 +12,10 @@ const Obs = (): React.ReactNode => {
     'counters',
     defaultSpeciesCounter,
   );
-  const [weather, setWeather] = useLocalStorage<WeatherType>('weather', {
-    rain: 'damp',
-    wind: 'no-wind',
-    temperature: 10,
-  });
+  const [weather, setWeather] = useLocalStorage<WeatherType>(
+    'weather',
+    defaultWeather,
+  );
   const [migration, setMigration] = React.useState<MigrationType>(
     MIGRATION.ALLER,
   );

@@ -13,11 +13,15 @@ import { TiWeatherShower } from 'react-icons/ti';
 import TemperaturePicker from './components/TemperaturePicker';
 import WeatherPicker from './components/WeatherPicker';
 import { currentDate } from '../../../utils/date';
-import { MIGRATION, Rain, Weather, Wind } from '../../../utils/constants';
 import {
-  defaultSpeciesCounter,
-  type SpeciesCounterType,
-} from '../../../utils/species';
+  MIGRATION,
+  defaultWeather,
+  Rain,
+  Weather,
+  Wind,
+} from '../../../utils/constants';
+import { defaultSpeciesCounter } from '../../../utils/species';
+import type { SpeciesCounterType } from '../../../utils/species';
 import type { MigrationType, WeatherType } from '../../../utils/constants';
 
 type ObsHeaderProps = {
@@ -40,8 +44,6 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
   } = props;
 
   const [modal, setModal] = React.useState<null | 'session' | 'weather'>(null);
-
-  console.log(weather);
 
   function totalCounter(
     counters: SpeciesCounterType,
@@ -212,7 +214,10 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
         {modal === 'session' && (
           <Modal
             isOpen={true}
-            onChange={() => setCounters(defaultSpeciesCounter)}
+            onChange={() => {
+              setCounters(defaultSpeciesCounter);
+              setWeather(defaultWeather);
+            }}
             onClose={() => setModal(null)}
             header={
               <>

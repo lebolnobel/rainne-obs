@@ -35,6 +35,12 @@ export const MIGRATION = Object.freeze({
 export const MIN_TEMP = -10;
 export const MAX_TEMP = 25;
 
+export const defaultWeather = {
+  rain: 'damp',
+  wind: 'no-wind',
+  temperature: 10,
+};
+
 export const Rain: WeatherObjType = {
   damp: {
     name: 'Humide',
