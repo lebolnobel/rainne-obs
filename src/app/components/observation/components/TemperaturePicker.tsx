@@ -24,18 +24,24 @@ const TemperaturePicker = (props: TemperaturePickerProps): React.ReactNode => {
       <div className="w-full flex items-center justify-between gap-4">
         <button
           onClick={() => adjustTemperature(-1)}
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-natagora/80 text-white active:bg-natagora/60 transition-colors"
+          className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 rounded-full bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
         >
-          <FaMinus size={24} />
+          <FaMinus
+            size={24}
+            className="min-w-8 h-8 p-2 rounded-full bg-natagora/80 hover:bg-natagora/60"
+          />
         </button>
         <div className="">
           <div className="text-2xl mb-1">{temperature}°c</div>
         </div>
         <button
           onClick={() => adjustTemperature(1)}
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-natagora/80 text-white active:bg-natagora/60 transition-colors"
+          className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 rounded-full bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
         >
-          <FaPlus size={24} />
+          <FaPlus
+            size={24}
+            className="min-w-8 h-8 p-2 rounded-full bg-natagora/80 hover:bg-natagora/60"
+          />
         </button>
       </div>
 
@@ -46,7 +52,7 @@ const TemperaturePicker = (props: TemperaturePickerProps): React.ReactNode => {
           onChange={(e) => handleTemperatureChange(parseInt(e.target.value))}
           min={`${MIN_TEMP}`}
           max={`${MAX_TEMP}`}
-          className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-natagora"
+          className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-natagora focus:outline-none focus:ring-2 focus:ring-natagora/30"
           style={{
             background: `linear-gradient(to right, #a2b21cbb ${((temperature + 10) / 35) * 100}%, #e5e7eb ${((temperature + 10) / 35) * 100}%)`,
           }}

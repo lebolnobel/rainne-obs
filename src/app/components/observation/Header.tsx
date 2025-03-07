@@ -3,6 +3,7 @@ import Switcher from './components/Switcher';
 import Modal from './components/Modal';
 import {
   GoCalendar,
+  GoCopy,
   // GoDownload,
   // GoGear,
   GoNumber,
@@ -12,6 +13,7 @@ import { TbTemperatureCelsius } from 'react-icons/tb';
 import { TiWeatherShower } from 'react-icons/ti';
 import TemperaturePicker from './components/TemperaturePicker';
 import WeatherPicker from './components/WeatherPicker';
+import ModalClipboard from './components/ModalClipboard';
 import { currentDate } from '../../../utils/date';
 import {
   MIGRATION,
@@ -43,7 +45,9 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     setWeather,
   } = props;
 
-  const [modal, setModal] = React.useState<null | 'session' | 'weather'>(null);
+  const [modal, setModal] = React.useState<
+    null | 'session' | 'weather' | 'copy'
+  >(null);
 
   function totalCounter(
     counters: SpeciesCounterType,
@@ -134,6 +138,21 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
             <div className="space-x-2 sm:space-x-4">
               <button
                 type="submit"
+                title="Copier vos données au format textuel"
+                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+                onClick={() => {
+                  setModal('copy');
+                }}
+              >
+                <GoCopy
+                  role="presentation"
+                  size="24"
+                  title="Copier vos données au format textuel"
+                  className="text-gray-50 inline-flex"
+                />
+              </button>
+              <button
+                type="submit"
                 title="Nouvelle session d'encodage"
                 className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
                 onClick={() => {
@@ -182,9 +201,9 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
         </div>
         <div className="flex justify-between">
           {actions.map((action) => (
-            <div
+            <button
               key={action.label}
-              className="flex flex-col text-center items-center gap-2 w-1/5 transition-all cursor-pointer hover:scale-110 hover:opacity-90"
+              className="flex flex-col text-center items-center gap-2 w-1/5 transition-all rounded-xl cursor-pointer hover:scale-110 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-natagora/30"
               onClick={action.action}
             >
               <div className="bg-natagora/60 p-3 rounded-full text-white p-1 rounded-full">
@@ -196,7 +215,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
                   {action.label}
                 </span>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
@@ -214,6 +233,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
         {modal === 'session' && (
           <Modal
             isOpen={true}
+            type="confirm"
             onChange={() => {
               setCounters(defaultSpeciesCounter);
               setWeather(defaultWeather);
@@ -246,6 +266,16 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
               </p>
             </div>
           </Modal>
+        )}
+
+        {modal === 'copy' && (
+          <ModalClipboard
+            counters={counters}
+            weather={weather}
+            totalAller={totalAller}
+            totalRetour={totalRetour}
+            onClose={() => setModal(null)}
+          />
         )}
 
         {modal === 'weather' && (

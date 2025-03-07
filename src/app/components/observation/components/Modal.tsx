@@ -3,8 +3,10 @@ import { GoX } from 'react-icons/go';
 
 type ModalType = {
   isOpen: boolean;
-  onChange: () => void;
+  onChange?: () => void;
   onClose: () => void;
+
+  type?: 'confirm' | 'info';
 
   // Submit button label
   action?: string;
@@ -15,7 +17,7 @@ type ModalType = {
 };
 
 const Modal = (props: ModalType): React.ReactNode => {
-  const { isOpen, onChange, onClose, action, header, children } = props;
+  const { isOpen, type, onChange, onClose, action, header, children } = props;
 
   const ref = React.useRef<HTMLDivElement | null>(null);
 
@@ -57,7 +59,7 @@ const Modal = (props: ModalType): React.ReactNode => {
               type="button"
               role="close"
               aria-label="close"
-              ref={(input) => input && input.focus()}
+              ref={(input) => type !== 'confirm' && input && input.focus()}
               onClick={onClose}
               className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center focus:outline-none focus:ring-2 focus:ring-natagora/40"
             >
@@ -72,27 +74,30 @@ const Modal = (props: ModalType): React.ReactNode => {
 
             <div className="p-4">{children}</div>
 
-            <div className="p-4 flex items-center justify-end gap-x-4">
-              <button
-                data-modal-hide="popup-modal"
-                type="button"
-                className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
-                onClick={() => {
-                  onChange();
-                  onClose();
-                }}
-              >
-                {action || 'Sauvegarder'}
-              </button>
-              <button
-                data-modal-hide="popup-modal"
-                type="button"
-                className="py-2 px-6 font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
-                onClick={onClose}
-              >
-                Annuler
-              </button>
-            </div>
+            {type !== 'info' && (
+              <div className="p-4 flex items-center justify-end gap-x-4">
+                <button
+                  data-modal-hide="popup-modal"
+                  type="button"
+                  className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  ref={(input) => type === 'confirm' && input && input.focus()}
+                  onClick={() => {
+                    onChange && onChange();
+                    onClose();
+                  }}
+                >
+                  {action || 'Sauvegarder'}
+                </button>
+                <button
+                  data-modal-hide="popup-modal"
+                  type="button"
+                  className="py-2 px-6 font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  onClick={onClose}
+                >
+                  Annuler
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

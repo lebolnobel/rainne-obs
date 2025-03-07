@@ -34,13 +34,11 @@ const Counter = (props: CounterType): React.ReactNode => {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="mx-1 p-1 rounded-full bg-natagora/20 hover:bg-natagora/30">
-        {icon}
-      </span>
+      <span className="mx-1 p-1 rounded-full bg-natagora/20">{icon}</span>
       <span className="flex grow text-sm truncate">{label}</span>
 
       <div className="flex items-center gap-2">
-        <CounterButton onClick={() => onChange(count - 1)}>
+        <CounterButton onClick={() => onChange(Math.max(0, count - 1))}>
           <FaMinus role="presentation" className="text-natagora" />
         </CounterButton>
 

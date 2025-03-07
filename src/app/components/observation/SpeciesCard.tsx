@@ -4,6 +4,7 @@ import { FaCar, FaInfoCircle } from 'react-icons/fa';
 import { GoDotFill } from 'react-icons/go';
 import { IoFemale, IoHelp, IoMale } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import { TYPE } from '../../../utils/species';
 
 type SpeciesCardProps = {
   id: string;
@@ -60,15 +61,16 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
                   <span>{total} observations</span>
                 </div>
               </div>
-              <span
-                className="p-1 rounded-full bg-white/20 hover:bg-white/30"
+              <button
+                className="p-1 rounded-full bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-natagora"
                 title="Plus d'informations"
+                onClick={() => navigate(`/species/${id}`)}
               >
                 <FaInfoCircle
                   role="presentation"
                   className="w-4 h-4 text-white"
                 />
-              </span>
+              </button>
             </div>
           </div>
         </div>
@@ -78,7 +80,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
         <ul role="list">
           <li className="py-2">
             <Counter
-              label="Mâles"
+              label={TYPE.males}
               count={counts.males}
               icon={
                 <IoMale className="inline-flex bg-natagora/10 text-natagora min-w-8 h-8 p-2 rounded-full" />
@@ -88,7 +90,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
           </li>
           <li className="py-2">
             <Counter
-              label="Femelles"
+              label={TYPE.females}
               count={counts.females}
               icon={
                 <IoFemale className="inline-flex bg-natagora/10 text-natagora min-w-8 h-8 p-2 rounded-full" />
@@ -98,7 +100,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
           </li>
           <li className="py-2">
             <Counter
-              label="Indéterminés"
+              label={TYPE.undefined}
               count={counts.undefined}
               icon={
                 <IoHelp className="inline-flex bg-natagora/10 text-natagora min-w-8 h-8 p-2 rounded-full" />
@@ -108,7 +110,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
           </li>
           <li className="py-2">
             <Counter
-              label="Écrasés"
+              label={TYPE.roadKill}
               count={counts.roadKill}
               icon={
                 <FaCar

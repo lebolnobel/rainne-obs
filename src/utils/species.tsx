@@ -44,6 +44,13 @@ export const defaultSpeciesCounter: SpeciesCounterType = {
   ['pelophylax-lessonae']: { ...defaultCounter },
 };
 
+export const TYPE = {
+  males: 'Mâles',
+  females: 'Femelles',
+  undefined: 'Indéterminés',
+  roadKill: 'Écrasés',
+};
+
 export const species: SpeciesType = {
   [SPECIES.BUFO_BUFO]: {
     name: 'Crapaud commun',

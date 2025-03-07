@@ -23,7 +23,7 @@ const WeatherPicker = <T extends string>(
             <button
               key={type}
               onClick={() => onChange(type)}
-              className={`p-4 rounded-lg transition-all duration-300 flex flex-col items-center ocus:outline-none focus:ring-2 focus:ring-natagora/40 ${value === type ? 'bg-natagora/80 text-white shadow-lg scale-105' : 'hover:bg-natagora/10'}`}
+              className={`p-4 rounded-lg transition-all duration-300 flex flex-col items-center focus:outline-none focus:ring-2 focus:ring-natagora/40 ${value === type ? 'bg-natagora/80 text-white shadow-lg scale-105' : 'hover:bg-natagora/10'}`}
             >
               <Icon role="presentation" size={24} />
               <span className="text-sm break-words">{label}</span>
