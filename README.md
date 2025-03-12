@@ -6,7 +6,7 @@
 
 ## Outil d'encodage
 
-TODO
+Cette application est à destination des bénévoles lors des opérations de sauvetage des batraciens, une initiative de Natagora. Cette application permet de facilement faire le compte des batraciens présents sur le site.
 
 ## Natagora
 
