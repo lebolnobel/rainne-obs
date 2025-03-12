@@ -11,6 +11,7 @@ type CounterType = {
 
 const Counter = (props: CounterType): React.ReactNode => {
   const { label, count, icon, onChange } = props;
+
   const [isEditing, setIsEditing] = React.useState(false);
   const [inputValue, setInputValue] = React.useState(count.toString());
 
@@ -32,13 +33,21 @@ const Counter = (props: CounterType): React.ReactNode => {
     }
   };
 
+  const handleChange = () => {
+    setIsEditing(true);
+    setInputValue(count.toString());
+  };
+
+  const handleMore = () => onChange(count + 1);
+  const handleLess = () => onChange(Math.max(0, count - 1));
+
   return (
     <div className="flex items-center gap-2">
       <span className="mx-1 p-1 rounded-full bg-natagora/20">{icon}</span>
       <span className="flex grow text-sm truncate">{label}</span>
 
       <div className="flex items-center gap-2">
-        <CounterButton onClick={() => onChange(Math.max(0, count - 1))}>
+        <CounterButton onClick={handleLess}>
           <FaMinus role="presentation" className="text-natagora" />
         </CounterButton>
 
@@ -56,16 +65,13 @@ const Counter = (props: CounterType): React.ReactNode => {
           />
         ) : (
           <button
-            onClick={() => {
-              setIsEditing(true);
-              setInputValue(count.toString());
-            }}
+            onClick={handleChange}
             className="w-10 h-12 text-center font-medium hover:bg-gray-100 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
           >
             {count}
           </button>
         )}
-        <CounterButton onClick={() => onChange(count + 1)}>
+        <CounterButton onClick={handleMore}>
           <FaPlus role="presentation" className="text-natagora" />
         </CounterButton>
       </div>

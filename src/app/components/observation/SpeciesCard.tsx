@@ -58,7 +58,9 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
                       className="mx-3 my-2 text-gray-400 inline-flex"
                     />
                   </span>
-                  <span>{total} observations</span>
+                  <span>
+                    {total} observation{total > 1 ? 's' : ''}
+                  </span>
                 </div>
               </div>
               <button

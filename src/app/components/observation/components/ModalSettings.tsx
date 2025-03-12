@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GoCheck, GoChevronDown } from 'react-icons/go';
 
-const Settings = (): React.ReactNode => {
+const ModalSettings = (): React.ReactNode => {
   return (
     <section className="container px-10 py-6 mx-auto md:rounded-lg shadow-sm text-gray-800 bg-gray-50">
       <div className="mx-auto block">
@@ -194,4 +194,4 @@ const Settings = (): React.ReactNode => {
   );
 };
 
-export default Settings;
+export default ModalSettings;

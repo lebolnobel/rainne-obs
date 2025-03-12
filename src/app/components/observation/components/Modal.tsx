@@ -6,6 +6,7 @@ type ModalType = {
   onChange?: () => void;
   onClose: () => void;
 
+  // Type of modal (footer section)
   type?: 'confirm' | 'info';
 
   // Submit button label
@@ -48,13 +49,13 @@ const Modal = (props: ModalType): React.ReactNode => {
 
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 text-base">
-      <div className="fixed inset-0 flex items-center justify-center z-50 mx-4">
+      <div className="fixed inset-0 flex items-center justify-center z-50 sm:mx-4">
         <div
           ref={ref}
           role="dialog"
-          className="items-center justify-center shadow-lg max-w-xl w-full"
+          className="items-center justify-center shadow-lg sm:max-w-xl w-full"
         >
-          <div className="max-w-xl mx-auto overflow-hidden transition-all transform bg-white divide-y divide-gray-100 shadow-2xl rounded-xl ring-1 ring-black ring-opacity-5">
+          <div className="max-w-full mx-auto overflow-hidden transition-all duration-350 transform bg-white divide-y divide-gray-100 shadow-2xl fixed bottom-0 sm:relative rounded-t-xl sm:rounded-xl max-h-[90vh] sm:max-h-full">
             <button
               type="button"
               role="close"
@@ -66,13 +67,14 @@ const Modal = (props: ModalType): React.ReactNode => {
               <GoX role="presentation" size="24" />
               <span className="sr-only">Fermer la popup</span>
             </button>
+
             <div className="p-4">
               <div className="flex flex-row items-center text-left">
                 {header}
               </div>
             </div>
 
-            <div className="p-4">{children}</div>
+            <div className="p-4 overflow-y-auto">{children}</div>
 
             {type !== 'info' && (
               <div className="p-4 flex items-center justify-end gap-x-4">

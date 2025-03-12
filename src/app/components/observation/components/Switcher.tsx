@@ -12,6 +12,13 @@ type SwitcherType = {
 
 const Switcher = (props: SwitcherType): React.ReactNode => {
   const { migration, totalAller, totalRetour, setMigration } = props;
+
+  const handleChange = () => {
+    setMigration(
+      migration === MIGRATION.ALLER ? MIGRATION.RETOUR : MIGRATION.ALLER,
+    );
+  };
+
   return (
     <>
       <label className="shadow-card relative w-80 mx-auto flex cursor-pointer select-none items-center justify-center rounded-md bg-gray-600 p-1">
@@ -19,13 +26,7 @@ const Switcher = (props: SwitcherType): React.ReactNode => {
           type="checkbox"
           className="sr-only"
           checked={migration === MIGRATION.ALLER}
-          onChange={() =>
-            setMigration(
-              migration === MIGRATION.ALLER
-                ? MIGRATION.RETOUR
-                : MIGRATION.ALLER,
-            )
-          }
+          onChange={handleChange}
         />
 
         <span

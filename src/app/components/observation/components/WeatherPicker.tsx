@@ -13,8 +13,8 @@ const WeatherPicker = <T extends string>(
   const { opts, value, onChange } = props;
 
   return (
-    <div className="flex items-center justify-center py-4">
-      <div className="grid grid-cols-4 gap-2 w-full h-24">
+    <div className="flex items-center justify-center md:p-4 p-2">
+      <div className="grid grid-cols-4 gap-2 w-full h-20">
         {opts.map((type) => {
           const Icon = Weather[type].icon;
           const label = Weather[type].name;
@@ -23,7 +23,7 @@ const WeatherPicker = <T extends string>(
             <button
               key={type}
               onClick={() => onChange(type)}
-              className={`p-4 rounded-lg transition-all duration-300 flex flex-col items-center focus:outline-none focus:ring-2 focus:ring-natagora/40 ${value === type ? 'bg-natagora/80 text-white shadow-lg scale-105' : 'hover:bg-natagora/10'}`}
+              className={`md:p-4 p-2 rounded-lg transition-all duration-300 flex flex-col items-center focus:outline-none focus:ring-2 focus:ring-natagora/40 ${value === type ? 'bg-natagora/80 text-white shadow-lg scale-105' : 'hover:bg-natagora/10'}`}
             >
               <Icon role="presentation" size={24} />
               <span className="text-sm break-words">{label}</span>

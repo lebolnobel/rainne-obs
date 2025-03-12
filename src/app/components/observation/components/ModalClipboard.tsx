@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Modal from './Modal';
+import useClipboard from '../../../../hooks/useClipboard';
 import { GoCheck, GoCopy } from 'react-icons/go';
 import { currentDate } from '../../../../utils/date';
 import { MIGRATION, Weather } from '../../../../utils/constants';
 import { species, TYPE } from '../../../../utils/species';
 import type { SpeciesCounterType } from '../../../../utils/species';
 import type { MigrationType, WeatherType } from '../../../../utils/constants';
-import useClipboard from '../../../../hooks/useClipboard';
 
 type ModalClipboardProps = {
   counters: SpeciesCounterType;
@@ -60,9 +60,7 @@ const ModalClipboard = (props: ModalClipboardProps): React.ReactNode => {
       .join('');
   };
 
-  const contentToCopy = `Date : ${currentDate()}
-Météo : ${weather.temperature}°c, ${Weather[weather.rain].name}, ${Weather[weather.wind].name}
-${(totalAller > 0 && `Aller: ${computeData(MIGRATION.ALLER)}\n`) || ''}${(totalRetour > 0 && `Retour: ${computeData(MIGRATION.RETOUR)}`) || ''}`;
+  const contentToCopy = `Date : ${currentDate()}\nTotal : ${totalAller + totalRetour}\nMétéo : ${weather.temperature}°c, ${Weather[weather.rain].name}, ${Weather[weather.wind].name}\n${(totalAller > 0 && `Aller: ${computeData(MIGRATION.ALLER)}\n`) || ''}${(totalRetour > 0 && `Retour: ${computeData(MIGRATION.RETOUR)}`) || ''}`;
 
   return (
     <Modal
@@ -94,14 +92,14 @@ ${(totalAller > 0 && `Aller: ${computeData(MIGRATION.ALLER)}\n`) || ''}${(totalR
           <div className="relative">
             <div
               ref={divRef}
-              className="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               onClick={selectText}
               dangerouslySetInnerHTML={{
                 __html: contentToCopy.replace(/\n/g, '<br />'),
               }}
             />
             <button
-              className="absolute end-2 top-6 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center"
+              className="absolute end-2 top-6 -translate-y-1/2 text-gray-500 hover:bg-gray-100 rounded-lg p-2 inline-flex items-center justify-center"
               onClick={() => {
                 copyToClipboard(contentToCopy).catch((error) =>
                   console.error(error),

@@ -1,20 +1,15 @@
 import * as React from 'react';
 import Switcher from './components/Switcher';
 import Modal from './components/Modal';
-import {
-  GoCalendar,
-  GoCopy,
-  // GoDownload,
-  // GoGear,
-  GoNumber,
-  GoPlusCircle,
-} from 'react-icons/go';
+import { GoCalendar, GoNumber, GoPlusCircle } from 'react-icons/go';
 import { TbTemperatureCelsius } from 'react-icons/tb';
 import { TiWeatherShower } from 'react-icons/ti';
 import TemperaturePicker from './components/TemperaturePicker';
 import WeatherPicker from './components/WeatherPicker';
 import ModalClipboard from './components/ModalClipboard';
+import HeaderAction from './components/Action';
 import { currentDate } from '../../../utils/date';
+import { defaultSpeciesCounter } from '../../../utils/species';
 import {
   MIGRATION,
   defaultWeather,
@@ -22,14 +17,18 @@ import {
   Weather,
   Wind,
 } from '../../../utils/constants';
-import { defaultSpeciesCounter } from '../../../utils/species';
 import type { SpeciesCounterType } from '../../../utils/species';
-import type { MigrationType, WeatherType } from '../../../utils/constants';
+import type {
+  MigrationType,
+  SettingsType,
+  WeatherType,
+} from '../../../utils/constants';
 
 type ObsHeaderProps = {
   counters: SpeciesCounterType;
   weather: WeatherType;
   migration: MigrationType;
+  settings: SettingsType;
   setMigration: (key: MigrationType) => void;
   setCounters: (value: SpeciesCounterType) => void;
   setWeather: (value: WeatherType) => void;
@@ -40,6 +39,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     counters,
     weather,
     migration,
+    settings,
     setMigration,
     setCounters,
     setWeather,
@@ -68,23 +68,15 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     });
   }
 
+  function onClose() {
+    setModal(null);
+  }
+
   const totalAller: number = totalCounter(counters, MIGRATION.ALLER);
   const totalRetour: number = totalCounter(counters, MIGRATION.RETOUR);
   const total: number = totalAller + totalRetour;
 
   const actions = [
-    // {
-    //   icon: GoArrowRight,
-    //   label: 'Aller',
-    //   value: totalAller,
-    //   action: () => setMigration(MIGRATION.ALLER),
-    // },
-    // {
-    //   icon: GoArrowLeft,
-    //   label: 'Retour',
-    //   value: totalRetour,
-    //   action: () => setMigration(MIGRATION.RETOUR),
-    // },
     {
       icon: Weather[weather.wind].icon,
       label: 'Vent',
@@ -108,7 +100,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
       label: 'Date',
       value: currentDate(),
       action: () => {
-        console.log('Vous ne pouvez pas encore changer la date');
+        alert('Vous ne pouvez pas encore changer la date');
       },
     },
   ];
@@ -119,8 +111,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     >
       <div className="max-w-screen-sm mx-auto">
         <div className="absolute -right-1 -top-2 text-gray-400 z-0 text-7xl opacity-25">
-          {/*SB-043*/}
-          ENCODAGE
+          {settings.siteId}
         </div>
         <h3 className="text-slate-200 uppercase my-2">
           Sauvetage des batraciens
@@ -134,76 +125,14 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
               {total}
             </div>
           </div>
-          <div className="flex basis-1/2 justify-end">
-            <div className="space-x-2 sm:space-x-4">
-              <button
-                type="submit"
-                title="Copier vos données au format textuel"
-                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
-                onClick={() => {
-                  setModal('copy');
-                }}
-              >
-                <GoCopy
-                  role="presentation"
-                  size="24"
-                  title="Copier vos données au format textuel"
-                  className="text-gray-50 inline-flex"
-                />
-              </button>
-              <button
-                type="submit"
-                title="Nouvelle session d'encodage"
-                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
-                onClick={() => {
-                  setModal('session');
-                }}
-              >
-                <GoPlusCircle
-                  role="presentation"
-                  size="24"
-                  title="Nouvelle session d'encodage"
-                  className="text-gray-50 inline-flex"
-                />
-              </button>
-              {/* <button
-                type="submit"
-                title="Paramètres d'encodage"
-                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
-                onClick={() => {
-                  navigate('/settings');
-                }}
-              >
-                <GoGear
-                  role="presentation"
-                  size="24"
-                  title="Paramètres d'encodage"
-                  className="text-gray-50 inline-flex"
-                />
-              </button>
-              <button
-                type="submit"
-                title="Téléchager vos données"
-                className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
-                onClick={() => {
-                  alert('Download');
-                }}
-              >
-                <GoDownload
-                  role="presentation"
-                  size="24"
-                  title="Téléchager vos données"
-                  className="text-gray-50 inline-flex"
-                />
-              </button> */}
-            </div>
-          </div>
+          <HeaderAction onAction={setModal} />
         </div>
+
         <div className="flex justify-between">
           {actions.map((action) => (
             <button
               key={action.label}
-              className="flex flex-col text-center items-center gap-2 w-1/5 transition-all rounded-xl cursor-pointer hover:scale-110 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-natagora/30"
+              className="flex flex-col text-center items-center gap-2 w-1/5 transition-transform rounded-xl cursor-pointer hover:scale-110 focus:outline-none focus:ring-2 focus:ring-natagora/30"
               onClick={action.action}
             >
               <div className="bg-natagora/60 p-3 rounded-full text-white p-1 rounded-full">
@@ -238,7 +167,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
               setCounters(defaultSpeciesCounter);
               setWeather(defaultWeather);
             }}
-            onClose={() => setModal(null)}
+            onClose={onClose}
             header={
               <>
                 <div className="text-2xl pr-4">
@@ -251,7 +180,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
                 </div>
               </>
             }
-            action={'Oui, démarrer une nouvelle session'}
+            action={'Oui, une nouvelle session'}
           >
             <div className="flex">
               <GoNumber
@@ -274,7 +203,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
             weather={weather}
             totalAller={totalAller}
             totalRetour={totalRetour}
-            onClose={() => setModal(null)}
+            onClose={onClose}
           />
         )}
 
@@ -282,7 +211,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
           <Modal
             isOpen={true}
             onChange={() => setCounters(defaultSpeciesCounter)}
-            onClose={() => setModal(null)}
+            onClose={onClose}
             header={
               <>
                 <div className="text-2xl pr-4">

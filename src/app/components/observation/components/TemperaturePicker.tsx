@@ -15,15 +15,15 @@ const TemperaturePicker = (props: TemperaturePickerProps): React.ReactNode => {
     onChange(newTemp);
   };
 
-  const adjustTemperature = (increment: number) => {
+  const adjustTemperature = (increment: number) => () => {
     handleTemperatureChange(temperature + increment);
   };
 
   return (
-    <div className="py-4 space-y-8">
+    <div className="md:py-4 py-2 md:space-y-8 space-y-4">
       <div className="w-full flex items-center justify-between gap-4">
         <button
-          onClick={() => adjustTemperature(-1)}
+          onClick={adjustTemperature(-1)}
           className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 rounded-full bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
         >
           <FaMinus
@@ -31,11 +31,9 @@ const TemperaturePicker = (props: TemperaturePickerProps): React.ReactNode => {
             className="min-w-8 h-8 p-2 rounded-full bg-natagora/80 hover:bg-natagora/60"
           />
         </button>
-        <div className="">
-          <div className="text-2xl mb-1">{temperature}°c</div>
-        </div>
+        <div className="text-2xl mb-1">{temperature}°c</div>
         <button
-          onClick={() => adjustTemperature(1)}
+          onClick={adjustTemperature(1)}
           className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 rounded-full bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
         >
           <FaPlus
@@ -45,7 +43,7 @@ const TemperaturePicker = (props: TemperaturePickerProps): React.ReactNode => {
         </button>
       </div>
 
-      <div className="px-2">
+      <div>
         <input
           type="range"
           value={temperature}

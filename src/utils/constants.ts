@@ -10,6 +10,14 @@ import {
   TiWeatherWindyCloudy,
 } from 'react-icons/ti';
 
+export type SettingsType = {
+  // Identification du site, sur le projet observations.be
+  siteId: string;
+
+  // Type de barrage
+  siteType: string; // 'normal' | 'barrage_trou' | 'barrage';
+};
+
 export type MigrationType = 'aller' | 'retour';
 export type WindType = keyof typeof Wind;
 export type RainType = keyof typeof Rain;
@@ -39,6 +47,11 @@ export const defaultWeather = {
   rain: 'damp',
   wind: 'no-wind',
   temperature: 10,
+};
+
+export const defaultSettings = {
+  siteId: 'ENCODAGE',
+  siteType: 'normal',
 };
 
 export const Rain: WeatherObjType = {
