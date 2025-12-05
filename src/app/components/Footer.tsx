@@ -19,7 +19,7 @@ const Footer = (): React.ReactNode => {
         </a>
         , pour{' '}
         <a
-          href="http://natagora.be/"
+          href="https://www.natagora.be/"
           title="Natagora"
           className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
         >
