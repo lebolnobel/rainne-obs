@@ -85,7 +85,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     },
     {
       icon: Weather[weather.rain].icon,
-      label: 'Météo',
+      label: 'Précipitations',
       value: Weather[weather.rain].name,
       action: () => setModal('weather'),
     },
