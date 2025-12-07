@@ -78,6 +78,20 @@ const Learn = (): React.ReactNode => {
           </div>
         </div>
 
+        <div className="pt-10">
+          <h3 className="text-2xl font-medium text-slate-900 mb-2 uppercase">
+            Remerciements
+          </h3>
+          <div className="">
+            <p className="pb-2">
+              Un tout grand merci également à l'ensemble des photographes qui
+              ont bien voulu se prêter aux jeux et proposer leurs photos pour
+              l'application : Adrien Goffing, Aurélie Robise, F. Gries, Karl
+              Gillebert, Lionel Lebon, Simon Aucremanne et Thierry Kinet.
+            </p>
+          </div>
+        </div>
+
         <div className="flex flex-col sm:flex-row space-y-8 sm:space-y-0 mt-8">
           <figure className="text-center mx-auto px-8 w-48" role="none">
             <a
