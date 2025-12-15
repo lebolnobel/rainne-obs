@@ -1,14 +1,16 @@
 # Raînne, Sauvetage des batraciens
 
-[Demo](https://rainne.netlify.app/)
+👉 [Testez-le](https://rainne.netlify.app/) vous aussi !
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7ee21c14-fd1b-4d85-9d11-7d5bcb283dc6/deploy-status)](https://rainne.netlify.app)
 
 ## Outil d'encodage
 
-Cette application est à destination des bénévoles lors des opérations de sauvetage des batraciens, une initiative de Natagora. Cette application permet de facilement faire le compte des batraciens présents sur le site.
+Cette application est à destination des bénévoles lors des opérations "Sauvetage des batraciens", une initiative de Natagora. Cette application permet de facilement faire le compte des batraciens présents sur le site.
 
-## Natagora
+En effet, lorsque les conditions le permettent, les mouvements des batraciens peuvent être massifs. Dès lors, les identifier et les compter doivent se faire dans le moins de temps possible. Cette application permet de les compter facilement (les données sont stockées localement) et aide le bénévole novice à reconnaître les espèces grâce à des fiches d'identification.
+
+## Natagora et Raînne
 
 Natagora a pour but de protéger la nature, plus particulièrement en Wallonie et à Bruxelles. Son objectif ? Enrayer la dégradation de la biodiversité et reconstituer un bon état général de la nature, en équilibre avec les activités humaines.
 
@@ -41,7 +43,7 @@ How to use the project locally:
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". 
 
 * Fork the Project
 * Create your Feature Branch (git checkout -b feature/AmazingFeature)
