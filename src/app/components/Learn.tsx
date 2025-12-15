@@ -170,7 +170,7 @@ const Learn = (): React.ReactNode => {
           </figure>
         </div>
 
-        <div className="mt-10 flex flex-wrap mb-10 rounded-lg bg-red-100 opacity-25 p-4 text-slate-700">
+        <div className="mt-10 flex flex-wrap mb-10 rounded-lg bg-red-100 bg-opacity-25 p-4 text-slate-700">
           <h3 className="flex-auto text-2xl font-medium text-slate-900 mb-2 uppercase">
             BSAL !
           </h3>
