@@ -8,10 +8,6 @@ const NOS_AMPHIBIENS_URL = 'https://www.natagora.be/download/39253';
 const Learn = (): React.ReactNode => {
   const navigate = useNavigate();
 
-  const downloadMemo = () => {
-    window.open(NOS_AMPHIBIENS_URL);
-  };
-
   return (
     <div className="container px-10 py-6 mx-auto md:rounded-lg shadow-sm text-gray-800 bg-gray-50">
       <section className="mx-auto block">
@@ -87,12 +83,13 @@ const Learn = (): React.ReactNode => {
 
             <div className="space-x-4 mt-6 text-base font-medium">
               <div className="flex-auto flex space-x-4">
-                <button
-                  type="button"
+                <a
                   role="button"
-                  onClick={downloadMemo}
-                  aria-label="download"
+                  href={NOS_AMPHIBIENS_URL}
+                  title="batraciens.be"
                   className="px-6 py-2 inline-flex font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Nos amphibiens
                   <GoArrowRight
@@ -100,7 +97,7 @@ const Learn = (): React.ReactNode => {
                     size="24"
                     className="ml-2"
                   />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -145,8 +142,13 @@ const Learn = (): React.ReactNode => {
                   href="https://www.natagora.be/sauvetage-des-batraciens"
                   title="batraciens.be"
                   className="px-6 py-2 inline-flex font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  batraciens.be
+                  batraciens.be{' '}
+                  <span className="sr-only">
+                    (ouvre dans une nouvelle fenêtre)
+                  </span>
                   <GoArrowRight
                     role="presentation"
                     size="24"

@@ -3,7 +3,7 @@ import Counter from './components/Counter';
 import { FaCar, FaInfoCircle } from 'react-icons/fa';
 import { GoDotFill } from 'react-icons/go';
 import { IoFemale, IoHelp, IoMale } from 'react-icons/io5';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { TYPE } from '../../../utils/species';
 
 type SpeciesCardProps = {
@@ -63,16 +63,16 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
                   </span>
                 </div>
               </div>
-              <button
-                className="p-1 rounded-full bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-natagora"
+              <NavLink
+                to="/species/${id}"
                 title="Plus d'informations"
-                onClick={() => navigate(`/species/${id}`)}
+                className="p-1 rounded-full bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-natagora"
               >
                 <FaInfoCircle
                   role="presentation"
                   className="w-4 h-4 text-white"
                 />
-              </button>
+              </NavLink>
             </div>
           </div>
         </div>
