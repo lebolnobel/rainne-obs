@@ -65,7 +65,7 @@ const Learn = (): React.ReactNode => {
               >
                 Natagora
               </a>
-              . Son code source est disponible sur{' '}
+              . Le code source est disponible sur{' '}
               <a
                 href="https://github.com/lebolnobel/rainne-obs"
                 title="Github, rainne-obs"
@@ -86,7 +86,7 @@ const Learn = (): React.ReactNode => {
             <p className="pb-2">
               Un tout grand merci également à l'ensemble des photographes qui
               ont bien voulu se prêter aux jeux et proposer leurs photos pour
-              l'application : Adrien Goffing, Aurélie Robise, F. Gries, Karl
+              l'application : Adrien Goffin, Aurélie Robise, F. Gries, Karl
               Gillebert, Lionel Lebon, Simon Aucremanne et Thierry Kinet.
             </p>
           </div>
@@ -124,7 +124,7 @@ const Learn = (): React.ReactNode => {
                 loading="lazy"
               />
               <figcaption className="mt-2 text-sm text-center text-gray-500">
-                Natagora, ASBL{' '}
+                Natagora, ASBL
               </figcaption>
             </a>
           </figure>

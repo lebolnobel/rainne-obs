@@ -7,7 +7,7 @@ const Footer = (): React.ReactNode => {
       className="pt-6 pb-6 text-center text-xs text-gray-600"
       role="contentinfo"
     >
-      <p>
+      <p className="text-balance">
         Fait avec <GoHeart role="presentation" className="inline-flex" />,
         réalisé pour l'opération de{' '}
         <a

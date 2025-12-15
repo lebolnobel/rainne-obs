@@ -107,7 +107,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
 
   return (
     <div
-      className={`mt-0 relative p-6 mb-8 ${migration === MIGRATION.ALLER ? 'bg-gradient-to-r from-slate-500 via-gray-500 to-slate-700' : 'bg-gradient-to-r from-gray-700 via-slate-500 to-slate-600'}`}
+      className={`mt-0 relative p-6 mb-8 ${migration === MIGRATION.ALLER ? 'bg-gradient-to-r from-slate-500 to-slate-800' : 'bg-gradient-to-r bg-gradient-to-r from-gray-900 to-gray-500'}`}
     >
       <div className="max-w-screen-sm mx-auto">
         <div className="absolute -right-1 -top-2 text-gray-400 z-0 text-7xl opacity-25">
