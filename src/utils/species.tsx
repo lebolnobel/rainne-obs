@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { HotspotPointType } from './learn';
 
 export type CounterType = {
   males: number;
@@ -26,6 +27,9 @@ export type SpeciesType = {
   place: React.ReactNode;
   behavior: React.ReactNode;
   currentStatus: React.ReactNode;
+
+  // Hotspot points for identification help
+  hotspots?: Array<HotspotPointType>;
 };
 
 const defaultCounter: {
@@ -96,7 +100,9 @@ export const species: { [key: string]: SpeciesType } = {
           <li>Peau pustuleuse/verruqueuse</li>
           <li>Pupille horizontale</li>
           <li>Iris rouge-orange cuivré</li>
-          <li>Glandes parotoïdes proéminentes</li>
+          <li>
+            Glandes parotoïdes (glande qui secrète des toxines) proéminentes
+          </li>
           <li>
             Le mâle aura une callosité nuptiale (entre le pouce et l'index,
             aspect noirâtre)
@@ -124,6 +130,26 @@ export const species: { [key: string]: SpeciesType } = {
         pertes considérables sur les routes lors de ses migrations.
       </p>
     ),
+    hotspots: [
+      {
+        x: 72,
+        y: 35,
+        title: 'Yeux',
+        description: 'Pupille horizontale & iris rouge-orange cuivré',
+      },
+      {
+        x: 40,
+        y: 55,
+        title: 'Peau',
+        description: 'Peau pustuleuse/verruqueuse',
+      },
+      {
+        x: 58,
+        y: 30,
+        title: 'Glande',
+        description: 'Glandes parotoïdes proéminentes',
+      },
+    ],
   },
 
   [SPECIES.RANA_TEMPORARIA]: {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import HotspotPoint from './learn/HotspotPoint';
 import Image from './Image';
 import ErrorPage from './ErrorPage';
 import { NavLink } from 'react-router-dom';
@@ -28,12 +29,14 @@ const Species = (): React.ReactNode => {
 
         <div className="flex pt-10">
           <div className="flex-auto">
-            <Image
-              src={sp.imageDetailUrl}
-              alt={sp.name}
-              description={sp.name}
-              subDescription="Aide à la l'identification"
-            />
+            <HotspotPoint hotspots={sp.hotspots}>
+              <Image
+                src={sp.imageDetailUrl}
+                alt={sp.name}
+                description={sp.name}
+                enableZoom={false}
+              />
+            </HotspotPoint>
 
             <div className="w-full flex-none">
               <div className="flex flex-col justify-center divide-y divide-slate-200 py-10">
@@ -90,11 +93,11 @@ const Species = (): React.ReactNode => {
 
             <div className="text-sm mb-10 rounded-lg bg-slate-100 p-4 text-slate-700">
               <p>
-                Il s'agit de fiche d'identification en période de migration. En
-                période nuptiale, les critères peuvent être différents pour
-                certaines espèces. Vous pourriez en rencontrer durant vos
-                sauvetages, mais les critères présentés restent corrects. Ces
-                fiches ont été réalisées sur base des{' '}
+                Il s'agit d'une fiche d'identification utile en période de
+                migration. En période nuptiale, d'autres critères peuvent
+                s'ajouter pour certaines espèces. Vous pourriez en rencontrer
+                durant vos sauvetages, mais les critères présentés restent
+                corrects. Ces fiches ont été réalisées sur base des{' '}
                 <a
                   href="https://rainne.natagora.be/herpetofaune/especes"
                   title="Rainne, Natagora"
