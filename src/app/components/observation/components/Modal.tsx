@@ -55,7 +55,7 @@ const Modal = (props: ModalType): React.ReactNode => {
           role="dialog"
           className="items-center justify-center shadow-lg sm:max-w-xl w-full"
         >
-          <div className="max-w-full mx-auto overflow-hidden transition-all duration-350 transform bg-white divide-y divide-gray-100 shadow-2xl fixed bottom-0 sm:relative rounded-t-xl sm:rounded-xl max-h-[90vh] sm:max-h-full">
+          <div className="w-full mx-auto overflow-hidden transition-all duration-350 transform bg-white divide-y divide-gray-100 shadow-2xl fixed bottom-0 sm:relative rounded-t-xl sm:rounded-xl max-h-[90vh] sm:max-h-full">
             <button
               type="button"
               role="close"

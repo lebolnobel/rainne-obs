@@ -245,7 +245,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
                 opts={Object.keys(Rain)}
               />
 
-              <h4 className="text-lg font-medium text-slate-900 uppercase">
+              <h4 className="text-lg font-medium text-slate-900 uppercase mt-8">
                 Vent
               </h4>
 
