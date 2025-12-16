@@ -3,14 +3,11 @@ import { GoX } from 'react-icons/go';
 
 type ModalType = {
   isOpen: boolean;
-  onChange?: () => void;
   onClose: () => void;
 
   // Type of modal (footer section)
   type?: 'confirm' | 'info';
 
-  // Submit button label
-  action?: string;
   // Title of the header
   header: React.ReactNode;
   // Content of the modal
@@ -18,7 +15,7 @@ type ModalType = {
 };
 
 const Modal = (props: ModalType): React.ReactNode => {
-  const { isOpen, type, onChange, onClose, action, header, children } = props;
+  const { isOpen, type, onClose, header, children } = props;
 
   const ref = React.useRef<HTMLDivElement | null>(null);
 
@@ -75,31 +72,6 @@ const Modal = (props: ModalType): React.ReactNode => {
             </div>
 
             <div className="p-4 overflow-y-auto">{children}</div>
-
-            {type !== 'info' && (
-              <div className="p-4 flex items-center justify-end gap-x-4">
-                <button
-                  data-modal-hide="popup-modal"
-                  type="button"
-                  className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
-                  ref={(input) => type === 'confirm' && input && input.focus()}
-                  onClick={() => {
-                    onChange && onChange();
-                    onClose();
-                  }}
-                >
-                  {action || 'Sauvegarder'}
-                </button>
-                <button
-                  data-modal-hide="popup-modal"
-                  type="button"
-                  className="py-2 px-6 font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
-                  onClick={onClose}
-                >
-                  Annuler
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </div>

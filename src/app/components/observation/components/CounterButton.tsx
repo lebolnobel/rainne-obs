@@ -11,7 +11,7 @@ const CounterButton = (props: CounterButtonType): React.ReactNode => {
   return (
     <button
       onClick={onClick}
-      className="hover:bg-gray-100 rounded px-4 py-3 transition-colors text-xl focus:outline-none focus:ring-2 focus:ring-natagora/30"
+      className="hover:bg-gray-100 rounded p-3 transition-colors text-xl focus:outline-none focus:ring-2 focus:ring-natagora/30"
     >
       {children}
     </button>

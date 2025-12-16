@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Switcher from './components/Switcher';
 import Modal from './components/Modal';
-import { GoCalendar, GoNumber, GoPlusCircle } from 'react-icons/go';
+import { GoCalendar, GoGear, GoNumber, GoPlusCircle } from 'react-icons/go';
 import { TbTemperatureCelsius } from 'react-icons/tb';
 import { TiWeatherShower } from 'react-icons/ti';
 import TemperaturePicker from './components/TemperaturePicker';
@@ -23,6 +23,7 @@ import type {
   SettingsType,
   WeatherType,
 } from '../../../utils/constants';
+import ModalSettings from './components/ModalSettings';
 
 type ObsHeaderProps = {
   counters: SpeciesCounterType;
@@ -32,6 +33,7 @@ type ObsHeaderProps = {
   setMigration: (key: MigrationType) => void;
   setCounters: (value: SpeciesCounterType) => void;
   setWeather: (value: WeatherType) => void;
+  setSettings: (value: SettingsType) => void;
 };
 
 const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
@@ -43,10 +45,11 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     setMigration,
     setCounters,
     setWeather,
+    setSettings,
   } = props;
 
   const [modal, setModal] = React.useState<
-    null | 'session' | 'weather' | 'copy'
+    null | 'session' | 'weather' | 'copy' | 'settings'
   >(null);
 
   function totalCounter(
@@ -110,8 +113,8 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
       className={`mt-0 relative p-6 mb-8 ${migration === MIGRATION.ALLER ? 'bg-gradient-to-r from-slate-500 to-slate-800' : 'bg-gradient-to-r bg-gradient-to-r from-gray-900 to-gray-500'}`}
     >
       <div className="max-w-screen-sm mx-auto">
-        <div className="absolute -right-1 -top-2 text-gray-400 z-0 text-7xl opacity-25">
-          {settings.siteId}
+        <div className="absolute -right-1 -top-2 text-gray-400 z-0 text-7xl opacity-25 uppercase">
+          {settings.siteId ? `SB${settings.siteId}` : 'Encodage'}
         </div>
         <h3 className="text-slate-200 uppercase my-2">
           Sauvetage des batraciens
@@ -163,10 +166,6 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
           <Modal
             isOpen={true}
             type="confirm"
-            onChange={() => {
-              setCounters(defaultSpeciesCounter);
-              setWeather(defaultWeather);
-            }}
             onClose={onClose}
             header={
               <>
@@ -180,20 +179,46 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
                 </div>
               </>
             }
-            action={'Oui, une nouvelle session'}
           >
-            <div className="flex">
-              <GoNumber
-                role="presentation"
-                size="64"
-                className="inline-flex mb-6 basis-1/4"
-              />
-              <p className="text-gray-500 basis-3/4">
-                Vous allez perdre vos données d'encodage, elles n'ont pas été
-                synchronisées. Voulez-vous continuer ? Une nouvelle session
-                débutera selon vos paramètres.
-              </p>
-            </div>
+            <>
+              <section className="container mx-auto overflow-y-auto max-h-[60vh] overscroll-contain">
+                <div className="flex">
+                  <GoNumber
+                    role="presentation"
+                    size="64"
+                    className="inline-flex mb-6 basis-1/4"
+                  />
+                  <p className="text-gray-500 basis-3/4">
+                    Vous allez perdre vos données d'encodage, elles n'ont pas
+                    été synchronisées. Voulez-vous continuer ? Une nouvelle
+                    session débutera selon vos paramètres.
+                  </p>
+                </div>
+              </section>
+
+              <div className="pt-8 flex items-center justify-end gap-x-4">
+                <button
+                  data-modal-hide="popup-modal"
+                  type="button"
+                  className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  onClick={() => {
+                    setCounters(defaultSpeciesCounter);
+                    setWeather(defaultWeather);
+                    onClose();
+                  }}
+                >
+                  Oui, une nouvelle session
+                </button>
+                <button
+                  data-modal-hide="popup-modal"
+                  type="button"
+                  className="py-2 px-6 font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  onClick={onClose}
+                >
+                  Annuler
+                </button>
+              </div>
+            </>
           </Modal>
         )}
 
@@ -207,10 +232,34 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
           />
         )}
 
+        {modal === 'settings' && (
+          <Modal
+            isOpen={true}
+            onClose={onClose}
+            header={
+              <>
+                <div className="text-2xl pr-4">
+                  <GoGear role="presentation" size="24" />
+                </div>
+                <div>
+                  <h3 className="flex-auto text-2xl mr-10 font-medium text-slate-900 uppercase">
+                    Paramètres
+                  </h3>
+                </div>
+              </>
+            }
+          >
+            <ModalSettings
+              settings={settings}
+              onChange={(value) => setSettings(value)}
+              onClose={onClose}
+            />
+          </Modal>
+        )}
+
         {modal === 'weather' && (
           <Modal
             isOpen={true}
-            onChange={() => setCounters(defaultSpeciesCounter)}
             onClose={onClose}
             header={
               <>

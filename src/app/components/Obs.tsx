@@ -24,7 +24,10 @@ const Obs = (): React.ReactNode => {
     'weather',
     defaultWeather,
   );
-  const [settings] = useLocalStorage<SettingsType>('settings', defaultSettings);
+  const [settings, setSettings] = useLocalStorage<SettingsType>(
+    'settings',
+    defaultSettings,
+  );
 
   const [migration, setMigration] = React.useState<MigrationType>(
     MIGRATION.ALLER,
@@ -57,6 +60,7 @@ const Obs = (): React.ReactNode => {
         setMigration={setMigration}
         setCounters={setCounters}
         setWeather={setWeather}
+        setSettings={setSettings}
       />
 
       <section className="mx-auto block px-10 py-6 md:rounded-lg shadow-sm">

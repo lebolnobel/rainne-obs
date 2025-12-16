@@ -12,10 +12,10 @@ import {
 
 export type SettingsType = {
   // Identification du site, sur le projet observations.be
-  siteId: string;
+  siteId: string | null;
 
   // Type de barrage
-  siteType: string; // 'normal' | 'barrage_trou' | 'barrage';
+  siteType: 'manual' | 'barrage_trou' | 'barrage';
 };
 
 export type MigrationType = 'aller' | 'retour';
@@ -43,15 +43,15 @@ export const MIGRATION = Object.freeze({
 export const MIN_TEMP = -10;
 export const MAX_TEMP = 25;
 
-export const defaultWeather = {
+export const defaultWeather: WeatherType = {
   rain: 'damp',
   wind: 'no-wind',
   temperature: 10,
 };
 
-export const defaultSettings = {
-  siteId: 'ENCODAGE',
-  siteType: 'normal',
+export const defaultSettings: SettingsType = {
+  siteId: null,
+  siteType: 'manual',
 };
 
 export const Rain: WeatherObjType = {

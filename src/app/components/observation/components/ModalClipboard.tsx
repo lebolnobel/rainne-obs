@@ -79,7 +79,6 @@ const ModalClipboard = (props: ModalClipboardProps): React.ReactNode => {
           </div>
         </>
       }
-      action={'Oui, démarrer une nouvelle session'}
     >
       <div>
         <p className="text-gray-500 basis-3/4">
