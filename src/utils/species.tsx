@@ -210,6 +210,26 @@ export const species: { [key: string]: SpeciesType } = {
         du trafic routier.
       </p>
     ),
+    hotspots: [
+      {
+        x: 60,
+        y: 20,
+        title: 'Yeux',
+        description: 'Iris doré',
+      },
+      {
+        x: 55,
+        y: 35,
+        title: 'Tache temporale',
+        description: "Tache temporale (derrière l'œil) bien marquée",
+      },
+      {
+        x: 35,
+        y: 65,
+        title: 'Peau',
+        description: 'Peau lisse (peau de poulet)',
+      },
+    ],
   },
 
   [SPECIES.ICHTHYOSAURA_ALPESTRIS]: {
@@ -267,6 +287,27 @@ export const species: { [key: string]: SpeciesType } = {
     currentStatus: (
       <p>Ce triton est le plus abondant en Wallonie et à Bruxelles.</p>
     ),
+    hotspots: [
+      {
+        x: 45,
+        y: 45,
+        title: 'Ventre',
+        description: 'Ventre orange vif, uniforme, sans taches',
+      },
+      {
+        x: 20,
+        y: 40,
+        title: 'Gorge',
+        description: 'Gorge orange vif, uniforme',
+      },
+      {
+        x: 30,
+        y: 60,
+        title: 'Sexe',
+        description:
+          "Il s'agit d'un mâle, motif pyjama léopard sur les flancs et aspect bleu",
+      },
+    ],
   },
 
   [SPECIES.LISSOTRITON_HELVETICUS]: {
@@ -326,6 +367,22 @@ export const species: { [key: string]: SpeciesType } = {
       </p>
     ),
     currentStatus: <p>C’est une espèce relativement commune en Wallonie.</p>,
+    hotspots: [
+      {
+        x: 45,
+        y: 45,
+        title: 'Ventre',
+        description:
+          'Ventre jaune pâle, tacheté ou non ; peut avoir une ligne orange',
+      },
+      {
+        x: 15,
+        y: 45,
+        title: 'Gorge',
+        description:
+          'Gorge de couleur chair rosée translucide, presque toujours sans tache',
+      },
+    ],
   },
 
   [SPECIES.LISSOTRITON_VULGARIS]: {
@@ -388,6 +445,22 @@ export const species: { [key: string]: SpeciesType } = {
         Bruxelles.
       </p>
     ),
+    hotspots: [
+      {
+        x: 55,
+        y: 45,
+        title: 'Ventre',
+        description:
+          "Le mâle peut avoir le ventre ponctué avec de grosses taches, avec une ligne orange. La femelle n'en aura pas",
+      },
+      {
+        x: 35,
+        y: 25,
+        title: 'Gorge',
+        description:
+          'Gorge de couleur blanc jaunâtre, avec de petites taches sombres. La femelle peut ne pas en avoir',
+      },
+    ],
   },
 
   [SPECIES.TRITURUS_CRISTATUS]: {
@@ -421,7 +494,7 @@ export const species: { [key: string]: SpeciesType } = {
         <ul className="list-decimal ml-4">
           <li>Le plus grand de nos tritons (il atteint 18 cm)</li>
           <li>Dos sombre</li>
-          <li>entre jauneorangé maculé de taches noires</li>
+          <li>Ventre jaune/orangé maculé de taches noires</li>
           <li>
             En livrée nuptiale, le mâle développe une haute crête dorsale
             dentelée, interrompue au niveau de l’insertion de la queue
@@ -448,6 +521,14 @@ export const species: { [key: string]: SpeciesType } = {
         C’est le plus rare de nos tritons.
       </p>
     ),
+    hotspots: [
+      {
+        x: 50,
+        y: 50,
+        title: 'Ventre',
+        description: 'Ventre jaune/orangé maculé de taches noires',
+      },
+    ],
   },
 
   [SPECIES.PELOPHYLAX_LESSONAE]: {
@@ -499,5 +580,19 @@ export const species: { [key: string]: SpeciesType } = {
         déclin, en particulier au nord du Sillon Sambre-et-Meuse
       </p>
     ),
+    hotspots: [
+      {
+        x: 60,
+        y: 20,
+        title: 'Peau',
+        description: 'Ligne dorsale (pas toujours marquée)',
+      },
+      {
+        x: 50,
+        y: 45,
+        title: 'Peau',
+        description: 'Plis dorso-latéraux',
+      },
+    ],
   },
 };
