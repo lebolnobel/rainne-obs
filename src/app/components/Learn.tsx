@@ -84,7 +84,6 @@ const Learn = (): React.ReactNode => {
             <div className="space-x-4 mt-6 text-base font-medium">
               <div className="flex-auto flex space-x-4">
                 <a
-                  role="button"
                   href={NOS_AMPHIBIENS_URL}
                   title="batraciens.be"
                   className="px-6 py-2 inline-flex font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora/40"
@@ -138,7 +137,6 @@ const Learn = (): React.ReactNode => {
             <div className="space-x-4 mt-6 text-base font-medium">
               <div className="flex-auto flex space-x-4">
                 <a
-                  role="button"
                   href="https://www.natagora.be/sauvetage-des-batraciens"
                   title="batraciens.be"
                   className="px-6 py-2 inline-flex font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora/40"
