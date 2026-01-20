@@ -47,7 +47,8 @@ export const SPECIES = Object.freeze({
   LISSOTRITON_HELVETICUS: 'lissotriton-helveticus',
   LISSOTRITON_VULGARIS: 'lissotriton-vulgaris',
   TRITURUS_CRISTATUS: 'triturus-cristatus',
-  PELOPHYLAX_LESSONAE: '  pelophylax-lessonae',
+  PELOPHYLAX_LESSONAE: 'pelophylax-lessonae',
+  SALAMANDRA_SALAMANDRA: 'salamandra-salamandra',
 });
 
 export const TYPE = {
@@ -65,6 +66,7 @@ export const defaultSpeciesCounter: SpeciesCounterType = {
   [SPECIES.LISSOTRITON_VULGARIS]: { ...defaultCounter },
   [SPECIES.TRITURUS_CRISTATUS]: { ...defaultCounter },
   [SPECIES.PELOPHYLAX_LESSONAE]: { ...defaultCounter },
+  [SPECIES.SALAMANDRA_SALAMANDRA]: { ...defaultCounter },
 };
 
 export const species: { [key: string]: SpeciesType } = {
@@ -242,8 +244,8 @@ export const species: { [key: string]: SpeciesType } = {
       <>
         <p className="mb-3">
           Le ventre du Triton alpestre est uniformément orange clair à rouge
-          vif. La gorge comprend parfois de petites taches noires. Le mâle peut
-          avoir une basse crête dorsale jaunâtre et tachetée de noir, une ligne
+          vif. La gorge comprend parfois de petites taches noires. Le mâle a
+          généralement une crête dorsale jaunâtre et tachetée de noir, une ligne
           bleu vif et de nombreux points noirs en bas des flancs, et son dos est
           bleuté. En dehors de la saison des amours, le Triton alpestre est
           généralement brunâtre, noirâtre, verdâtre ou grisâtre et prend un
@@ -267,7 +269,7 @@ export const species: { [key: string]: SpeciesType } = {
             Dos et flancs bleu chez le mâle, bleu-vert marbré chez la femelle
           </li>
           <li>Chez le mâle, il y a un motif pyjama léopard sur les flancs</li>
-          <li>Le mâle peut avoir une mini crête claire</li>
+          <li>Le mâle a une mini crête claire</li>
         </ul>
       </>
     ),
@@ -338,8 +340,8 @@ export const species: { [key: string]: SpeciesType } = {
         <ul className="list-decimal ml-4">
           <li>Taille jusqu'à 9 cm</li>
           <li>
-            Tubercule blanchâtre au niveau de la base des pattes (pas toujours
-            présent)
+            Tubercule blanchâtre au niveau de la base des pattes (il peut
+            arriver qu'il n'y en ait qu'un)
           </li>
           <li>Un filament/mucron orne l’extrémité de sa queue</li>
           <li>
@@ -418,7 +420,7 @@ export const species: { [key: string]: SpeciesType } = {
           </li>
           <li>
             Le mâle peut avoir le ventre ponctué avec de grosses taches, avec
-            une ligne orange. La femelle n'en aura pas
+            une ligne orange.
           </li>
           <li>
             Ne possède jamais de tubercule blanchâtre à la base des pattes
@@ -451,7 +453,7 @@ export const species: { [key: string]: SpeciesType } = {
         y: 45,
         title: 'Ventre',
         description:
-          "Le mâle peut avoir le ventre ponctué avec de grosses taches, avec une ligne orange. La femelle n'en aura pas",
+          'Le mâle peut avoir le ventre ponctué avec de grosses taches, avec une ligne orange.',
       },
       {
         x: 35,
@@ -499,6 +501,7 @@ export const species: { [key: string]: SpeciesType } = {
             En livrée nuptiale, le mâle développe une haute crête dorsale
             dentelée, interrompue au niveau de l’insertion de la queue
           </li>
+          <li>Les flancs sont parsemés d'une ponctuation blanchâtre</li>
         </ul>
       </>
     ),
@@ -554,7 +557,7 @@ export const species: { [key: string]: SpeciesType } = {
         <ul className="list-decimal ml-4">
           <li>Dos souvent vert... mais il existe des exceptions !</li>
           <li>Ligne dorsale</li>
-          <li>Plis dorso-latéraux</li>
+          <li>Plis dorso-latéraux protubérants</li>
           <li>Tache temporale (derrière l'œil) absente ou peu marquée</li>
           <li>Yeux proéminents (comme un téléscope, en dehors de l'eau)</li>
         </ul>
@@ -592,6 +595,78 @@ export const species: { [key: string]: SpeciesType } = {
         y: 45,
         title: 'Peau',
         description: 'Plis dorso-latéraux',
+      },
+    ],
+  },
+
+  [SPECIES.SALAMANDRA_SALAMANDRA]: {
+    name: 'Salamandre terrestre',
+    scientificName: 'Salamandra salamandra',
+    imageUrl:
+      '/assets/img/species/csm_Salamandre_tachetee_3_-_T._Kinet_9e77ab5de5.jpg',
+    imageDetailUrl: '/assets/img/species/details/salamandre-terrestre.jpg',
+    generalities: (
+      <>
+        <p className="mb-3">
+          La Salamandre tachetée est facilement reconnaissable et impossible à
+          confondre avec une autre espèce d’amphibiens. D’un aspect général
+          boudiné, elle mesure en moyenne 15 à 20 cm et présente un dos noir
+          avec deux bandes parallèles de taches jaunes ou orangées plutôt
+          allongées et irrégulières. Son ventre est plus clair, gris foncé à
+          bleuâtre, et sa queue est cylindrique. Sa peau est entièrement
+          luisante. Elle possède également derrière les yeux deux glandes
+          parotoïdes formant des bourrelets jaunes.
+        </p>
+
+        <p>
+          Ovovivipare, la salamandre ne pond pas d’œufs, mais bien directement
+          des larves. Elle va garder les œufs dans son utérus jusqu’à ce qu’ils
+          éclosent. Les larves se reconnaissent par la présence de taches
+          claires à la base des pattes, face supérieure, et leur coloration gris
+          marbré. Elles mesurent 20-30 mm à la naissance, et 55-66 mm vers la
+          métamorphose.
+        </p>
+      </>
+    ),
+    identification: (
+      <>
+        <ul className="list-decimal ml-4">
+          <li>De couleur noire avec des taches jaunes, inconfondable !</li>
+          <li>Chaque individu possède un motif de coloration unique</li>
+        </ul>
+      </>
+    ),
+    place: (
+      <p>
+        Elle évolue généralement en milieu forestier. Elle se reproduit dans les
+        ruisseaux et les petites mares.
+      </p>
+    ),
+    behavior: (
+      <p>
+        La salamandre est un animal terrestre (excepté pour la ponte), discret
+        et nocturne. Elle est ovovipare et donne donc naissance directement à
+        des larves.
+      </p>
+    ),
+    currentStatus: (
+      <p>
+        Relativement abondante dans les régions vallonnées au paysage boisé,
+        plus rare ailleurs
+      </p>
+    ),
+    hotspots: [
+      {
+        x: 72,
+        y: 35,
+        title: 'Yeux',
+        description: 'Pupille noire',
+      },
+      {
+        x: 40,
+        y: 55,
+        title: 'Peau',
+        description: 'De couleur noire avec des taches jaunes, inconfondable !',
       },
     ],
   },

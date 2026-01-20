@@ -19,9 +19,6 @@ const Learn = (): React.ReactNode => {
             batraciens présents sur le site. Les compteurs sont stockés
             localement, sur le smartphone. Une fois la session terminée, les
             données peuvent être reportée sur le site Observations.be.
-            {/* Par ailleurs, cette application est accessible
-              également hors ligne pour une utilisation efficace qu'importe les
-              circonstances. */}
           </div>
         </div>
 
@@ -42,10 +39,10 @@ const Learn = (): React.ReactNode => {
 
             <p className="pb-2">
               Pour installer l'application sur votre smartphone, il vous suffit
-              d'ouvrir les paramètres de votre navigateur. Une bouton
-              "Installer" ou "Ajouter à l'écran d'accueil" devrait apparaître.
-              Cliquez dessus et suivez les instructions. Vous pouvez également
-              mettre le lien de ce site dans vos favoris de votre navigateur.
+              d'ouvrir les paramètres de votre navigateur. Un bouton "Installer"
+              ou "Ajouter à l'écran d'accueil" devrait apparaître. Cliquez
+              dessus et suivez les instructions. Vous pouvez également mettre le
+              lien de ce site dans vos favoris de votre navigateur.
             </p>
 
             <p className="pb-2">

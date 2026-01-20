@@ -25,7 +25,7 @@ const Counter = (props: CounterType): React.ReactNode => {
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === 'Space') {
+    if (event.key === 'Enter' || event.key === ' ') {
       handleBlur();
     } else if (event.key === 'Escape') {
       setIsEditing(false);

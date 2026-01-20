@@ -27,7 +27,7 @@ const Learn = (): React.ReactNode => {
             </p>
           </div>
 
-          <div className="flex w-full mt-4 mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
+          <div className="w-full mt-4 mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 space-y-4 sm:space-y-0">
             {Object.keys(species).map((sp, index) => (
               <div
                 key={index}
@@ -101,7 +101,7 @@ const Learn = (): React.ReactNode => {
             </div>
           </div>
           <figure
-            className="hidden sm:block sm:col-span-3 flex text-center mx-auto w-full"
+            className="sm:block sm:col-span-3 flex text-center mx-auto w-full"
             role="none"
           >
             <img
@@ -157,7 +157,7 @@ const Learn = (): React.ReactNode => {
             </div>
           </div>
           <figure
-            className="hidden sm:block sm:col-span-3 flex text-center mx-auto w-full"
+            className="sm:block sm:col-span-3 flex text-center mx-auto w-full"
             role="none"
           >
             <img
@@ -175,14 +175,14 @@ const Learn = (): React.ReactNode => {
             BSAL !
           </h3>
           <p className="font-light pb-2">
-            Il s'agit d'un "est un champignon pathogène qui affecte
-            essentiellement les salamandres et les tritons [...]. Ce champignon
-            provoque la chytridiomycose, une maladie mortelle [...]. Parmi les
-            espèces présentes en Belgique, la salamandre tachetée est
-            extrêmement sensible à ce champignon et meurt rapidement après avoir
-            été infectée. Le triton alpestre et le triton ponctué sont
-            modérément sensibles au pathogène tandis que le triton palmé semble
-            insensible." (Natagora).
+            Il s'agit d'un "champignon pathogène qui affecte essentiellement les
+            salamandres et les tritons [...]. Ce champignon provoque la
+            chytridiomycose, une maladie mortelle [...]. Parmi les espèces
+            présentes en Belgique, la salamandre tachetée (et le triton crêté,
+            NDLR) est extrêmement sensible à ce champignon et meurt rapidement
+            après avoir été infectée. Le triton alpestre et le triton ponctué
+            sont modérément sensibles au pathogène tandis que le triton palmé
+            semble insensible." (Natagora).
           </p>
 
           <p>
@@ -195,7 +195,8 @@ const Learn = (): React.ReactNode => {
             >
               salamandre@natagora.be
             </a>
-            .
+            . Merci de récolter le cadavre dans un sac en plastique fermé et de
+            le conserver au congélateur en attendant l'envoi.
           </p>
         </div>
       </section>

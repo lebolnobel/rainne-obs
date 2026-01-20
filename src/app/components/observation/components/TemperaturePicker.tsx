@@ -24,7 +24,7 @@ const TemperaturePicker = (props: TemperaturePickerProps): React.ReactNode => {
       <div className="w-full flex items-center justify-between gap-4">
         <button
           onClick={adjustTemperature(-1)}
-          className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 rounded-full bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
+          className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
         >
           <FaMinus
             size={24}
@@ -34,7 +34,7 @@ const TemperaturePicker = (props: TemperaturePickerProps): React.ReactNode => {
         <div className="text-2xl mb-1">{temperature}°c</div>
         <button
           onClick={adjustTemperature(1)}
-          className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 rounded-full bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
+          className="w-12 h-12 flex items-center justify-center rounded-full mx-1 p-1 bg-natagora/20 text-white active:bg-natagora/60 transition-colors focus:outline-none focus:ring-2 focus:ring-natagora/30"
         >
           <FaPlus
             size={24}

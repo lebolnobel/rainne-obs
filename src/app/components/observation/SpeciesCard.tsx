@@ -4,19 +4,14 @@ import { FaCar, FaInfoCircle } from 'react-icons/fa';
 import { GoDotFill } from 'react-icons/go';
 import { IoFemale, IoHelp, IoMale } from 'react-icons/io5';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { TYPE } from '../../../utils/species';
+import { CounterType, TYPE } from '../../../utils/species';
 
 type SpeciesCardProps = {
   id: string;
   species: string;
   scientificName: string;
   imageUrl: string;
-  counts: {
-    males: number;
-    females: number;
-    undefined: number;
-    roadKill: number;
-  };
+  counts: CounterType;
   onUpdate: (type: string, value: number) => void;
 };
 
@@ -49,7 +44,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
             <div className="flex items-center justify-between text-gray-200 hover:text-white">
               <div>
                 <h3 className="text-xl font-semibold">{species}</h3>
-                <div className="flex italic flex flex-wrap">
+                <div className="flex italic flex-wrap">
                   <span>
                     {scientificName}
                     <GoDotFill
