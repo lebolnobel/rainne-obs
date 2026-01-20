@@ -9,10 +9,16 @@ const ErrorPage = (): React.ReactNode => {
     // error is type `ErrorResponse`
     errorMessage = error.statusText;
   } else if (error instanceof Error) {
+    // Clear in case of issue with stored data
+    localStorage.clear();
     errorMessage = error.message;
   } else if (typeof error === 'string') {
+    // Clear in case of issue with stored data
+    localStorage.clear();
     errorMessage = error;
   } else {
+    // Clear in case of issue with stored data
+    localStorage.clear();
     console.error(error);
     errorMessage = 'Ahem...';
   }
