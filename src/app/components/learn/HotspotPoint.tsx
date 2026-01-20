@@ -22,12 +22,10 @@ const HotspotPoint = (props: HotspotPointProps): React.ReactNode => {
     setDisplay((prev) => !prev);
   };
 
-  const enableHotspot = display && !!hotspots;
-
   return (
     <>
       <div className="relative inline-block w-full">
-        {enableHotspot && (
+        {!!hotspots && (
           <button
             className="absolute z-10 right-4 top-4 shadow-card w-10 h-10 mx-auto cursor-pointer select-none rounded-md bg-gray-50 bg-opacity-25 hover:bg-opacity-40 focus:outline-none focus:ring-2 focus:ring-natagora/80"
             onClick={toggleDisplay}
@@ -52,7 +50,8 @@ const HotspotPoint = (props: HotspotPointProps): React.ReactNode => {
 
         {children}
 
-        {enableHotspot &&
+        {display &&
+          !!hotspots &&
           hotspots?.map((hotspot, id) => {
             const idHostspot = hotspot.title.replace(/[^a-zA-Z ]/g, '');
 
@@ -80,7 +79,7 @@ const HotspotPoint = (props: HotspotPointProps): React.ReactNode => {
           })}
       </div>
 
-      {enableHotspot && (
+      {!!hotspots && (
         <div className="text-base -mt-2 h-32 rounded-b-lg bg-slate-100 p-4 text-slate-700 shadow-sm">
           <p>
             {hoveredId !== null && !!hotspots?.[hoveredId] ? (
