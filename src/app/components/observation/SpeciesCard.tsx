@@ -73,7 +73,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
         </div>
       </div>
 
-      <div className="space-y-3 mx-2 sm:mx-6">
+      <div className="space-y-3 mx-2 sm:mx-4">
         <ul role="list">
           <li className="py-2">
             <Counter

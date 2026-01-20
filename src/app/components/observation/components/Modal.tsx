@@ -55,9 +55,9 @@ const Modal = (props: ModalType): React.ReactNode => {
           <div className="w-full mx-auto overflow-hidden transition-all duration-350 transform bg-white divide-y divide-gray-100 shadow-2xl fixed bottom-0 sm:relative rounded-t-xl sm:rounded-xl max-h-[90vh] sm:max-h-full">
             <button
               type="button"
+              autoFocus={type === 'confirm'}
               role="close"
               aria-label="close"
-              ref={(input) => type !== 'confirm' && input && input.focus()}
               onClick={onClose}
               className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center focus:outline-none focus:ring-2 focus:ring-natagora/40"
             >

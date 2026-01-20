@@ -46,7 +46,7 @@ const Counter = (props: CounterType): React.ReactNode => {
       <span className="mx-1 p-1 rounded-full bg-natagora/20">{icon}</span>
       <span className="flex grow text-sm truncate">{label}</span>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1">
         <CounterButton onClick={handleLess}>
           <FaMinus role="presentation" className="text-natagora" />
         </CounterButton>
