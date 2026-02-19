@@ -24,13 +24,13 @@ const Nav = (): React.ReactNode => {
           <img
             src="/favicon.ico"
             className="h-8"
-            alt="Raînne - encodage"
+            alt="Raînne - comptage"
             width="32"
             height="32"
             role="none"
           />
           <h1 className="self-center text-2xl font-medium whitespace-nowrap uppercase">
-            Raînne - encodage
+            Raînne - comptage
           </h1>
         </NavLink>
 
@@ -77,9 +77,9 @@ const Nav = (): React.ReactNode => {
               <NavLink
                 to="/obs"
                 className={({ isActive }) => className(isActive)}
-                title="Encoder une nouvelle observation"
+                title="Compter vos observations"
               >
-                Encoder
+                Compter
                 <GoPlusCircle
                   role="presentation"
                   size="16"

@@ -6,7 +6,7 @@ const Home = (): React.ReactNode => {
     <div className="container px-10 py-6 mx-auto md:rounded-lg shadow-sm text-gray-800 bg-gray-50">
       <section className="mx-auto block">
         <h2 className="text-slate-500 uppercase">
-          Application d'encodage pour l'opération de sauvetage
+          Application de comptage pour l'opération de sauvetage
         </h2>
 
         <div className="flex pt-10">
@@ -27,17 +27,39 @@ const Home = (): React.ReactNode => {
               </h3>
               <div className="w-full flex-none text-base">
                 <p className="pb-2">
-                  Aidez-vous lors de l'encodage sur le terrain ! Cette
-                  application vous permet en quelques clics de garder le compte
-                  des individus que vous avez croisé lors de vos soirées
-                  pluvieuses. Une fois rentré au chaud, vous pourrez reporter
-                  les observations dans le projet de votre site, sur
-                  Observations.be.
+                  Aidez-vous lors du comptage sur le terrain ! Cette application
+                  vous permet en quelques clics de garder le compte des
+                  individus que vous avez croisé lors de vos soirées pluvieuses.
+                  Une fois rentré·e au chaud, vous pourrez encoder les
+                  observations de votre site dans le projet{' '}
+                  <a
+                    href="https://observations.be/projects/16/locations/?"
+                    title="Projet sur Observations.be"
+                    className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  >
+                    "Amphibiens sur la route"
+                  </a>
+                  , sur Observations.be. Merci d'utiliser le lien actif unique
+                  de votre site, repris sur la{' '}
+                  <a
+                    href="https://www.natagora.be/sauvetage-des-batraciens"
+                    title="Carte interactives de l'ensemble des sites de sauvetage de batraciens"
+                    className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  >
+                    carte interactive des sauvetages.
+                  </a>
                 </p>
                 <p>
-                  N'oubliez pas de démarrer une nouvelle session lors d'un
-                  nouveau comptage. Cliquez sur le "+" en haut à droite dans
-                  l'onglet "Encoder".
+                  Au début de chaque sortie, n'oubliez pas de démarrer une
+                  nouvelle session lors d'un nouveau comptage. Cliquez sur le
+                  "+" en haut à droite dans l'onglet "Compter".{' '}
+                  <NavLink
+                    to="/about"
+                    title="A propos de l'application"
+                    className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  >
+                    En savoir plus ?
+                  </NavLink>
                 </p>
               </div>
             </div>
@@ -49,9 +71,9 @@ const Home = (): React.ReactNode => {
                     Kesako ?
                   </h3>
                   <p>
-                    Cette application permet aux bénévoles de comptabiliser les
-                    batraciens rencontrés lors des sauvetages. Il s'agit d'un
-                    bloc note numérique qui est toujours dans notre poche.
+                    Cette application permet aux volontaires de comptabiliser
+                    les batraciens rencontrés lors des sauvetages. Il s'agit
+                    d'un bloc note numérique qui est toujours dans notre poche.
                   </p>
                 </div>
               </div>
@@ -63,10 +85,10 @@ const Home = (): React.ReactNode => {
               <div className="flex-auto flex space-x-4">
                 <NavLink
                   className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
-                  title="Encoder des observations"
+                  title="Compter des observations"
                   to="/obs"
                 >
-                  Encoder vos observations !
+                  Compter vos observations !
                 </NavLink>
               </div>
             </div>

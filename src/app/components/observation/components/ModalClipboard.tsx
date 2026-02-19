@@ -84,7 +84,7 @@ const ModalClipboard = (props: ModalClipboardProps): React.ReactNode => {
         <p className="text-gray-500 basis-3/4">
           Ci-dessous, vous trouverez un résumé de vos données. Vous pouvez les
           copier et les coller ailleurs (par exemple un groupe WhatsApp avec
-          d'autres bénévoles).
+          d'autres volontaires).
         </p>
 
         <div ref={divRef} className="mt-8 mb-4 ml-8 mr-8 center">

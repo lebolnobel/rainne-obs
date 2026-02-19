@@ -5,7 +5,7 @@ const Learn = (): React.ReactNode => {
     <div className="container px-10 py-6 mx-auto md:rounded-lg shadow-sm text-gray-800 bg-gray-50">
       <section className="mx-auto text-base">
         <h2 className="text-slate-500 uppercase">
-          À propos de l'application d'encodage
+          À propos de l'application de comptage
         </h2>
 
         <div className="pt-10">
@@ -13,18 +13,20 @@ const Learn = (): React.ReactNode => {
             À propos
           </h3>
           <div className="">
-            Cette application est à destination des bénévoles lors des
+            Cette application est à destination des volontaires lors des
             opérations de sauvetage des batraciens, une initiative de Natagora.
             Cette application permet de facilement faire le compte des
             batraciens présents sur le site. Les compteurs sont stockés
             localement, sur le smartphone. Une fois la session terminée, les
-            données peuvent être reportée sur le site Observations.be.
+            données devront être reportées sur le site Observations.be. En
+            effet, pour l'heure, la plateforme Observations.be ne permet pas de
+            connexion directe par une application tierce.
           </div>
         </div>
 
         <div className="pt-10">
           <h3 className="text-2xl font-medium text-slate-900 mb-2 uppercase">
-            Kesako ?
+            Une application de comptage ?
           </h3>
           <div className="">
             <p className="pb-2">
@@ -37,12 +39,35 @@ const Learn = (): React.ReactNode => {
               susceptible de rencontrer.
             </p>
 
+            <p>
+              Les données sont sauvegardées sur votre téléphone directement
+              (localstorage). Cependant, lorsque vous démarrez une nouvelle
+              session, les données seront supprimées. Assurez-vous de les avoir
+              copier en utilisant le bouton prévu à cet effet. Les données
+              resteront disponibles tant qu'une nouvelle session n'a pas été
+              démarrée.
+            </p>
+
             <p className="pb-2">
               Pour installer l'application sur votre smartphone, il vous suffit
               d'ouvrir les paramètres de votre navigateur. Un bouton "Installer"
               ou "Ajouter à l'écran d'accueil" devrait apparaître. Cliquez
               dessus et suivez les instructions. Vous pouvez également mettre le
               lien de ce site dans vos favoris de votre navigateur.
+            </p>
+          </div>
+        </div>
+
+        <div className="pt-10">
+          <h3 className="text-2xl font-medium text-slate-900 mb-2 uppercase">
+            Remerciements
+          </h3>
+          <div className="">
+            <p className="pb-2">
+              Un tout grand merci également à l'ensemble des photographes qui
+              ont bien voulu se prêter aux jeux et proposer leurs photos pour
+              l'application : Adrien Goffin, Aurélie Robise, F. Gries, Karl
+              Gillebert, Lionel Lebon, Simon Aucremanne et Thierry Kinet.
             </p>
 
             <p className="pb-2">
@@ -71,20 +96,6 @@ const Learn = (): React.ReactNode => {
                 GitHub
               </a>
               .
-            </p>
-          </div>
-        </div>
-
-        <div className="pt-10">
-          <h3 className="text-2xl font-medium text-slate-900 mb-2 uppercase">
-            Remerciements
-          </h3>
-          <div className="">
-            <p className="pb-2">
-              Un tout grand merci également à l'ensemble des photographes qui
-              ont bien voulu se prêter aux jeux et proposer leurs photos pour
-              l'application : Adrien Goffin, Aurélie Robise, F. Gries, Karl
-              Gillebert, Lionel Lebon, Simon Aucremanne et Thierry Kinet.
             </p>
           </div>
         </div>

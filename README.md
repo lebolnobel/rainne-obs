@@ -6,7 +6,7 @@
 
 ## Outil d'encodage
 
-Cette application est à destination des bénévoles lors des opérations "Sauvetage des batraciens", une initiative de Natagora. Cette application permet de facilement faire le compte des batraciens présents sur le site.
+Cette application est à destination des volontaires lors des opérations "Sauvetage des batraciens", une initiative de Natagora. Cette application permet de facilement faire le compte des batraciens présents sur le site.
 
 En effet, lorsque les conditions le permettent, les mouvements des batraciens peuvent être massifs. Dès lors, les identifier et les compter doivent se faire dans le moins de temps possible. Cette application permet de les compter facilement (les données sont stockées localement) et aide le bénévole novice à reconnaître les espèces grâce à des fiches d'identification.
 

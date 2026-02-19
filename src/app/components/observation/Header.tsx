@@ -114,7 +114,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     >
       <div className="max-w-screen-sm mx-auto">
         <div className="absolute -right-1 -top-2 text-gray-400 z-0 text-7xl opacity-25 uppercase">
-          {settings.siteId ? `SB${settings.siteId}` : 'Encodage'}
+          {settings.siteId ? `SB${settings.siteId}` : 'Comptage'}
         </div>
         <h3 className="text-slate-200 uppercase my-2">
           Sauvetage des batraciens
@@ -189,9 +189,13 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
                     className="inline-flex mb-6 basis-1/4"
                   />
                   <p className="text-gray-500 basis-3/4">
-                    Vous allez perdre vos données d'encodage, elles n'ont pas
-                    été synchronisées. Voulez-vous continuer ? Une nouvelle
-                    session débutera selon vos paramètres.
+                    N'oubliez pas de partager vos données avant de commencer une
+                    nouvelle session, vous allez perdre vos données de comptage,
+                    elles ne sont pas été synchronisées. Voulez-vous continuer ?{' '}
+                    <strong>
+                      Lancer une nouvelle session remettra l'ensemble des
+                      compteurs à 0.
+                    </strong>
                   </p>
                 </div>
               </section>

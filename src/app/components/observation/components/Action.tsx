@@ -28,7 +28,7 @@ const HeaderAction = (props: ObsHeaderProps): React.ReactNode => {
         </button>
         <button
           type="submit"
-          title="Paramètres d'encodage"
+          title="Paramètres du site de sauvetage"
           className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
           onClick={() => {
             onAction('settings');
@@ -37,13 +37,13 @@ const HeaderAction = (props: ObsHeaderProps): React.ReactNode => {
           <GoGear
             role="presentation"
             size="24"
-            title="Paramètres d'encodage"
+            title="Paramètres du site de sauvetage"
             className="text-gray-50 inline-flex"
           />
         </button>
         <button
           type="submit"
-          title="Nouvelle session d'encodage"
+          title="Nouvelle session de comptage"
           className="shadow-card w-10 h-10 sm:w-12 sm:h-12 mx-auto cursor-pointer select-none rounded-md bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-natagora/30"
           onClick={() => {
             onAction('session');
@@ -52,7 +52,7 @@ const HeaderAction = (props: ObsHeaderProps): React.ReactNode => {
           <GoPlusCircle
             role="presentation"
             size="24"
-            title="Nouvelle session d'encodage"
+            title="Nouvelle session de comptage"
             className="text-gray-50 inline-flex"
           />
         </button>
