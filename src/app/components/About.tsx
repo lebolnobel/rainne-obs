@@ -39,7 +39,7 @@ const Learn = (): React.ReactNode => {
               susceptible de rencontrer.
             </p>
 
-            <p>
+            <p className="pb-2">
               Les données sont sauvegardées sur votre téléphone directement
               (localstorage).{' '}
               <strong>
