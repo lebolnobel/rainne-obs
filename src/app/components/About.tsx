@@ -31,7 +31,7 @@ const Learn = (): React.ReactNode => {
           <div className="">
             <p className="pb-2">
               Cette application remplace le bloc note traditionnel qui prend
-              l'eau et qu'on sali. On a toujours notre téléphone sur soi alors
+              l'eau et qu'on salit. On a toujours notre téléphone sur soi alors
               pourquoi ne pas l'utiliser ? Cette application permet de tenir le
               compte du nombre d'individus rencontrés lors des sauvetages de
               batraciens. L'application permet également de se remémorer les
@@ -41,11 +41,14 @@ const Learn = (): React.ReactNode => {
 
             <p>
               Les données sont sauvegardées sur votre téléphone directement
-              (localstorage). Cependant, lorsque vous démarrez une nouvelle
-              session, les données seront supprimées. Assurez-vous de les avoir
-              copier en utilisant le bouton prévu à cet effet. Les données
-              resteront disponibles tant qu'une nouvelle session n'a pas été
-              démarrée.
+              (localstorage).{' '}
+              <strong>
+                Cependant, lorsque vous démarrez une nouvelle session, les
+                données seront supprimées
+              </strong>
+              . Assurez-vous de les avoir copiées en utilisant le bouton prévu à
+              cet effet. Les données resteront disponibles tant qu'une nouvelle
+              session n'a pas été démarrée.
             </p>
 
             <p className="pb-2">
