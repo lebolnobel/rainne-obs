@@ -49,7 +49,7 @@ const Home = (): React.ReactNode => {
                     carte interactive des sauvetages.
                   </a>
                 </p>
-                <p>
+                <p className="pb-2">
                   Au début de chaque sortie, n'oubliez pas de démarrer une
                   nouvelle session lors d'un nouveau comptage. Cliquez sur le
                   "+" en haut à droite dans l'onglet "Compter".{' '}
@@ -60,6 +60,13 @@ const Home = (): React.ReactNode => {
                   >
                     En savoir plus ?
                   </NavLink>
+                </p>
+
+                <p className="pb-2">
+                  <em>
+                    Cette application ne remplace en aucun cas l'encodage sur la
+                    plateforme observations.be !
+                  </em>
                 </p>
               </div>
             </div>
