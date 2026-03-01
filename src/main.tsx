@@ -8,6 +8,7 @@ import Home from './app/components/Home';
 import Obs from './app/components/Obs';
 import Species from './app/components/Species';
 import Learn from './app/components/Learn';
+import History from './app/components/History';
 import About from './app/components/About';
 
 import './styles/styles.css';
@@ -34,6 +35,10 @@ const router = createBrowserRouter(
         {
           path: 'learn',
           element: <Learn />,
+        },
+        {
+          path: 'history',
+          element: <History />,
         },
         {
           path: 'about',

@@ -1,18 +1,19 @@
 import * as React from 'react';
 import Switcher from './components/Switcher';
 import Modal from './components/Modal';
-import { GoCalendar, GoGear, GoNumber, GoPlusCircle } from 'react-icons/go';
-import { TbTemperatureCelsius } from 'react-icons/tb';
-import { TiWeatherShower } from 'react-icons/ti';
 import TemperaturePicker from './components/TemperaturePicker';
 import WeatherPicker from './components/WeatherPicker';
 import ModalClipboard from './components/ModalClipboard';
 import HeaderAction from './components/Action';
-import { currentDate } from '../../../utils/date';
-import { defaultSpeciesCounter } from '../../../utils/species';
+import ModalSettings from './components/ModalSettings';
+import { GoCalendar, GoGear, GoNumber, GoPlusCircle } from 'react-icons/go';
+import { TbTemperatureCelsius } from 'react-icons/tb';
+import { TiWeatherShower } from 'react-icons/ti';
+import { readableDate } from '../../../utils/date';
 import {
   MIGRATION,
   defaultWeather,
+  defaultSpeciesCounter,
   Rain,
   Weather,
   Wind,
@@ -23,7 +24,6 @@ import type {
   SettingsType,
   WeatherType,
 } from '../../../utils/constants';
-import ModalSettings from './components/ModalSettings';
 
 type ObsHeaderProps = {
   counters: SpeciesCounterType;
@@ -101,7 +101,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
     {
       icon: GoCalendar,
       label: 'Date',
-      value: currentDate(),
+      value: readableDate(weather.date),
       action: () => {
         alert('Vous ne pouvez pas encore changer la date');
       },
@@ -182,7 +182,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
           >
             <>
               <section className="container mx-auto overflow-y-auto max-h-[60vh] overscroll-contain">
-                <div className="flex">
+                <div className="flex px-4">
                   <GoNumber
                     role="presentation"
                     size="64"
@@ -190,8 +190,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
                   />
                   <p className="text-gray-500 basis-3/4">
                     N'oubliez pas de partager vos données avant de commencer une
-                    nouvelle session, vous allez perdre vos données de comptage,
-                    elles ne sont pas été synchronisées. Voulez-vous continuer ?{' '}
+                    nouvelle session. Voulez-vous continuer&nbsp;?{' '}
                     <strong>
                       Lancer une nouvelle session remettra l'ensemble des
                       compteurs à 0.
@@ -200,7 +199,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
                 </div>
               </section>
 
-              <div className="pt-8 flex items-center justify-end gap-x-4">
+              <div className="pt-6 flex items-center justify-end gap-x-4 mb-8 md:mb-0">
                 <button
                   data-modal-hide="popup-modal"
                   type="button"
@@ -278,7 +277,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
               </>
             }
           >
-            <div className="px-2">
+            <div className="px-2 mb-8 md:mb-0">
               <h4 className="text-lg font-medium text-slate-900 uppercase">
                 Température
               </h4>

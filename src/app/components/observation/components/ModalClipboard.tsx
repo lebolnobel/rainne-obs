@@ -2,7 +2,7 @@ import * as React from 'react';
 import Modal from './Modal';
 import useClipboard from '../../../../hooks/useClipboard';
 import { GoCheck, GoCopy } from 'react-icons/go';
-import { currentDate } from '../../../../utils/date';
+import { readableDate } from '../../../../utils/date';
 import { MIGRATION, Weather } from '../../../../utils/constants';
 import { species, TYPE } from '../../../../utils/species';
 import type { SpeciesCounterType } from '../../../../utils/species';
@@ -60,7 +60,7 @@ const ModalClipboard = (props: ModalClipboardProps): React.ReactNode => {
       .join('');
   };
 
-  const contentToCopy = `Date : ${currentDate()}\nTotal : ${totalAller + totalRetour}\nMétéo : ${weather.temperature}°c, ${Weather[weather.rain].name}, ${Weather[weather.wind].name}\n${(totalAller > 0 && `Aller: ${computeData(MIGRATION.ALLER)}\n`) || ''}${(totalRetour > 0 && `Retour: ${computeData(MIGRATION.RETOUR)}`) || ''}`;
+  const contentToCopy = `Date : ${readableDate(weather.date)}\nTotal : ${totalAller + totalRetour}\nMétéo : ${weather.temperature}°c, ${Weather[weather.rain].name}, ${Weather[weather.wind].name}\n${(totalAller > 0 && `Aller : ${computeData(MIGRATION.ALLER)}\n`) || ''}${(totalRetour > 0 && `Retour : ${computeData(MIGRATION.RETOUR)}`) || ''}`;
 
   return (
     <Modal
@@ -80,7 +80,7 @@ const ModalClipboard = (props: ModalClipboardProps): React.ReactNode => {
         </>
       }
     >
-      <div>
+      <div className="mb-8 md:mb-0">
         <p className="text-gray-500 basis-3/4">
           Ci-dessous, vous trouverez un résumé de vos données. Vous pouvez les
           copier et les coller ailleurs (par exemple un groupe WhatsApp avec

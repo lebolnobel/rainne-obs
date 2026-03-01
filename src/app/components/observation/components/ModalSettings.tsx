@@ -185,7 +185,7 @@ const ModalSettings = (props: ModalSettingsProps): React.ReactNode => {
         </div>
       </section>
 
-      <div className="pt-8 flex items-center justify-end gap-x-4">
+      <div className="pt-8 flex items-center justify-end gap-x-4 mb-8 md:mb-0">
         <button
           data-modal-hide="popup-modal"
           type="button"

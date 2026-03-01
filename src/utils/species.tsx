@@ -32,12 +32,9 @@ export type SpeciesType = {
   hotspots?: Array<HotspotPointType>;
 };
 
-const defaultCounter: {
-  aller: CounterType;
-  retour: CounterType;
-} = {
-  aller: { males: 0, females: 0, undefined: 0, roadKill: 0 },
-  retour: { males: 0, females: 0, undefined: 0, roadKill: 0 },
+export type ArchiveType = {
+  date: Date;
+  data: SpeciesCounterType;
 };
 
 export const SPECIES = Object.freeze({
@@ -51,24 +48,14 @@ export const SPECIES = Object.freeze({
   SALAMANDRA_SALAMANDRA: 'salamandra-salamandra',
 });
 
-export const TYPE = {
+export const TYPE = Object.freeze({
   males: 'Mâles',
   females: 'Femelles',
   undefined: 'Indéterminés',
   roadKill: 'Écrasés',
-};
+});
 
-export const defaultSpeciesCounter: SpeciesCounterType = {
-  [SPECIES.BUFO_BUFO]: { ...defaultCounter },
-  [SPECIES.RANA_TEMPORARIA]: { ...defaultCounter },
-  [SPECIES.ICHTHYOSAURA_ALPESTRIS]: { ...defaultCounter },
-  [SPECIES.LISSOTRITON_HELVETICUS]: { ...defaultCounter },
-  [SPECIES.LISSOTRITON_VULGARIS]: { ...defaultCounter },
-  [SPECIES.TRITURUS_CRISTATUS]: { ...defaultCounter },
-  [SPECIES.PELOPHYLAX_LESSONAE]: { ...defaultCounter },
-  [SPECIES.SALAMANDRA_SALAMANDRA]: { ...defaultCounter },
-};
-
+// TODO create pages instead of raw data
 export const species: { [key: string]: SpeciesType } = {
   [SPECIES.BUFO_BUFO]: {
     name: 'Crapaud commun',

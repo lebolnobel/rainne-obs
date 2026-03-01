@@ -2,13 +2,16 @@ import * as React from 'react';
 import ObsHeader from './observation/Header';
 import SpeciesCard from './observation/SpeciesCard';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { species, defaultSpeciesCounter } from '../../utils/species';
+import { NavLink } from 'react-router-dom';
+import { species } from '../../utils/species';
 import {
+  defaultArchives,
   defaultSettings,
+  defaultSpeciesCounter,
   defaultWeather,
   MIGRATION,
 } from '../../utils/constants';
-import type { SpeciesCounterType } from '../../utils/species';
+import type { ArchiveType, SpeciesCounterType } from '../../utils/species';
 import type {
   MigrationType,
   SettingsType,
@@ -27,6 +30,10 @@ const Obs = (): React.ReactNode => {
   const [settings, setSettings] = useLocalStorage<SettingsType>(
     'settings',
     defaultSettings,
+  );
+  const [archives, setArchives] = useLocalStorage<Array<ArchiveType>>(
+    'archives',
+    defaultArchives,
   );
 
   const [migration, setMigration] = React.useState<MigrationType>(
@@ -50,6 +57,20 @@ const Obs = (): React.ReactNode => {
     });
   };
 
+  const resetCounters = (value: SpeciesCounterType) => {
+    // Push in Archives
+    setArchives([
+      {
+        date: weather.date || new Date(),
+        data: { ...counters },
+      },
+      ...archives.slice(0, 99), // Get only the 100 last elements (memory)
+    ]);
+
+    // Reset counters
+    setCounters(value);
+  };
+
   return (
     <>
       <ObsHeader
@@ -58,7 +79,7 @@ const Obs = (): React.ReactNode => {
         migration={migration}
         settings={settings}
         setMigration={setMigration}
-        setCounters={setCounters}
+        setCounters={resetCounters}
         setWeather={setWeather}
         setSettings={setSettings}
       />
@@ -76,6 +97,21 @@ const Obs = (): React.ReactNode => {
               onUpdate={(type, value) => handleUpdate(s, type, value)}
             />
           ))}
+        </div>
+
+        <div className="text-sm my-10 rounded-lg bg-slate-100 p-4 text-slate-700">
+          <p>
+            Ces données sont sauvegardées localement sur votre appareil. Vous
+            pouvez également{' '}
+            <NavLink
+              to="/history"
+              title="Rainne, Natagora"
+              className="text-natagora decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+            >
+              voir votre historique
+            </NavLink>
+            .
+          </p>
         </div>
       </section>
     </>

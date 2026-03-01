@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Learn = (): React.ReactNode => {
   return (
@@ -41,14 +42,31 @@ const Learn = (): React.ReactNode => {
 
             <p className="pb-2">
               Les données sont sauvegardées sur votre téléphone directement
-              (localstorage).{' '}
+              (localstorage). Une fois rentré·e au chaud, vous pourrez encoder
+              les observations de votre site dans le projet{' '}
+              <a
+                href="https://observations.be/projects/16/locations/?"
+                title="Projet sur Observations.be"
+                className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+              >
+                "Amphibiens sur la route"
+              </a>
+              , sur Observations.be. Gardez à l'esprit que{' '}
               <strong>
-                Cependant, lorsque vous démarrez une nouvelle session, les
-                données seront supprimées
-              </strong>
-              . Assurez-vous de les avoir copiées en utilisant le bouton prévu à
-              cet effet. Les données resteront disponibles tant qu'une nouvelle
-              session n'a pas été démarrée.
+                lorsque vous démarrez une nouvelle session, les données seront
+                supprimées
+              </strong>{' '}
+              (elles restent disponibles dans l'
+              <NavLink
+                to="/history"
+                title="Votre historique"
+                className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+              >
+                historique
+              </NavLink>
+              ). Assurez-vous de les avoir encodées ou copiées en utilisant le
+              bouton prévu à cet effet. Les données resteront disponibles tant
+              qu'une nouvelle session n'a pas été démarrée.
             </p>
 
             <p className="pb-2">

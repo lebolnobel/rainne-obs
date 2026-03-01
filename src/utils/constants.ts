@@ -9,6 +9,12 @@ import {
   TiWeatherWindy,
   TiWeatherWindyCloudy,
 } from 'react-icons/ti';
+import {
+  ArchiveType,
+  CounterType,
+  SPECIES,
+  SpeciesCounterType,
+} from './species';
 
 export type SettingsType = {
   // Identification du site, sur le projet observations.be
@@ -23,6 +29,7 @@ export type WindType = keyof typeof Wind;
 export type RainType = keyof typeof Rain;
 
 export type WeatherType = {
+  date?: Date;
   rain: RainType;
   wind: WindType;
   temperature: number;
@@ -43,7 +50,29 @@ export const MIGRATION = Object.freeze({
 export const MIN_TEMP = -10;
 export const MAX_TEMP = 25;
 
+export const defaultArchives: Array<ArchiveType> = [];
+
+const defaultCounter: {
+  aller: CounterType;
+  retour: CounterType;
+} = {
+  aller: { males: 0, females: 0, undefined: 0, roadKill: 0 },
+  retour: { males: 0, females: 0, undefined: 0, roadKill: 0 },
+};
+
+export const defaultSpeciesCounter: SpeciesCounterType = {
+  [SPECIES.BUFO_BUFO]: { ...defaultCounter },
+  [SPECIES.RANA_TEMPORARIA]: { ...defaultCounter },
+  [SPECIES.ICHTHYOSAURA_ALPESTRIS]: { ...defaultCounter },
+  [SPECIES.LISSOTRITON_HELVETICUS]: { ...defaultCounter },
+  [SPECIES.LISSOTRITON_VULGARIS]: { ...defaultCounter },
+  [SPECIES.TRITURUS_CRISTATUS]: { ...defaultCounter },
+  [SPECIES.PELOPHYLAX_LESSONAE]: { ...defaultCounter },
+  [SPECIES.SALAMANDRA_SALAMANDRA]: { ...defaultCounter },
+};
+
 export const defaultWeather: WeatherType = {
+  date: undefined,
   rain: 'damp',
   wind: 'no-wind',
   temperature: 10,
