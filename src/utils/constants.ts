@@ -96,7 +96,7 @@ export const Rain: WeatherObjType = {
     name: 'Pluie intermittente',
     icon: TiWeatherShower,
   },
-  'clear-nigh': {
+  'clear-night': {
     name: 'Sec',
     icon: TiWeatherSunny,
   },

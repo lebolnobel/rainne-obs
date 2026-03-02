@@ -81,28 +81,24 @@ const HotspotPoint = (props: HotspotPointProps): React.ReactNode => {
 
       {!!hotspots && (
         <div className="text-base -mt-2 h-32 rounded-b-lg bg-slate-100 p-4 text-slate-700 shadow-sm">
-          <p>
-            {hoveredId !== null && !!hotspots?.[hoveredId] ? (
-              <div className="space-y-2 p-2">
-                <h3 className="font-semibold text-gray-900 uppercase">
-                  {hotspots[hoveredId].title}
-                </h3>
-                <p className="text-gray-600">
-                  {hotspots[hoveredId].description}
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-2 p-2">
-                <h3 className="font-semibold text-gray-900 uppercase">
-                  Aide à la l'identification
-                </h3>
-                <p className="text-gray-600">
-                  Cliquez sur les aides ci-dessus pour afficher les critères
-                  d'identification
-                </p>
-              </div>
-            )}
-          </p>
+          {hoveredId !== null && !!hotspots?.[hoveredId] ? (
+            <div className="space-y-2 p-2">
+              <h3 className="font-semibold text-gray-900 uppercase">
+                {hotspots[hoveredId].title}
+              </h3>
+              <p className="text-gray-600">{hotspots[hoveredId].description}</p>
+            </div>
+          ) : (
+            <div className="space-y-2 p-2">
+              <h3 className="font-semibold text-gray-900 uppercase">
+                Aide à la l'identification
+              </h3>
+              <p className="text-gray-600">
+                Cliquez sur les aides ci-dessus pour afficher les critères
+                d'identification
+              </p>
+            </div>
+          )}
         </div>
       )}
     </>

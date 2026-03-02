@@ -59,7 +59,7 @@ const SpeciesCard = (props: SpeciesCardProps): React.ReactNode => {
                 </div>
               </div>
               <NavLink
-                to="/species/${id}"
+                to={`/species/${id}`}
                 title="Plus d'informations"
                 className="p-1 rounded-full bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-natagora"
               >
