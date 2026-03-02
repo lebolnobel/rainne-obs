@@ -99,7 +99,7 @@ const Obs = (): React.ReactNode => {
           ))}
         </div>
 
-        <div className="text-sm my-10 rounded-lg bg-slate-100 p-4 text-slate-700">
+        <div className="text-sm mt-10 rounded-lg bg-slate-100 p-4 text-slate-700">
           <p>
             Ces données sont sauvegardées localement sur votre appareil. Vous
             pouvez également{' '}

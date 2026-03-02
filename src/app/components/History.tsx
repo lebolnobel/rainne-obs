@@ -78,9 +78,9 @@ const History = (): React.ReactNode => {
                                 className="bg-white shadow-sm rounded-xl border border-slate-200 pt-2 pb-4 px-4 mb-2"
                               >
                                 <div className="mb-2">
-                                  <h3 className="text-lg font-semibold">
+                                  <h4 className="text-lg font-semibold">
                                     {species[sp].name}
-                                  </h3>
+                                  </h4>
                                   <div className="italic text-slate-500 text-sm">
                                     <span>{species[sp].scientificName}</span>
                                   </div>
@@ -98,9 +98,9 @@ const History = (): React.ReactNode => {
                                           key={direction}
                                           className="bg-slate-50 rounded-lg p-4 border border-slate-200"
                                         >
-                                          <h4 className="text-slate-400 mb-2 uppercase text-xs tracking-wide">
+                                          <h5 className="text-slate-400 mb-2 uppercase text-xs tracking-wide">
                                             {direction.toUpperCase()}
-                                          </h4>
+                                          </h5>
 
                                           {visibleEntries.length === 0 ? (
                                             <p className="text-sm text-slate-400 italic">

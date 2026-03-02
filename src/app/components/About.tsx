@@ -1,7 +1,12 @@
 import * as React from 'react';
+import { GoArrowRight } from 'react-icons/go';
 import { NavLink } from 'react-router-dom';
 
 const Learn = (): React.ReactNode => {
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className="container px-10 py-6 mx-auto md:rounded-lg shadow-sm text-gray-800 bg-gray-50">
       <section className="mx-auto text-base">
@@ -15,13 +20,27 @@ const Learn = (): React.ReactNode => {
           </h3>
           <div className="">
             Cette application est à destination des volontaires lors des
-            opérations de sauvetage des batraciens, une initiative de Natagora.
-            Cette application permet de facilement faire le compte des
-            batraciens présents sur le site. Les compteurs sont stockés
-            localement, sur le smartphone. Une fois la session terminée, les
-            données devront être reportées sur le site Observations.be. En
-            effet, pour l'heure, la plateforme Observations.be ne permet pas de
-            connexion directe par une application tierce.
+            opérations de{' '}
+            <a
+              href="https://www.natagora.be/sauvetage-des-batraciens"
+              title="Sauvetage des batraciens"
+              className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+            >
+              sauvetage des batraciens
+            </a>
+            , une initiative de Natagora. Cette application permet de facilement
+            faire le compte des batraciens présents sur le site. Une fois la
+            session terminée, les données devront être encodées sur le site{' '}
+            <a
+              href="https://www.observations.be"
+              title="Observations.be"
+              className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+            >
+              Observations.be
+            </a>
+            . A titre informatif, pour l'heure, la plateforme Observations.be ne
+            permet pas de connexion directe par une application tierce et donc
+            un synchronisation automatique.
           </div>
         </div>
 
@@ -76,21 +95,25 @@ const Learn = (): React.ReactNode => {
               dessus et suivez les instructions. Vous pouvez également mettre le
               lien de ce site dans vos favoris de votre navigateur.
             </p>
+
+            <div className="text-center mx-auto w-3/4 mt-6 font-medium">
+              <NavLink
+                className="px-6 py-2 font-semibold rounded-md bg-natagora text-white hover:bg-natagora/90 hover:shadow inline-flex relative focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                title="Commencer à compter"
+                to="../obs"
+              >
+                Compter vos observations
+                <GoArrowRight role="presentation" size="24" className="ml-2" />
+              </NavLink>
+            </div>
           </div>
         </div>
 
         <div className="pt-10">
           <h3 className="text-2xl font-medium text-slate-900 mb-2 uppercase">
-            Remerciements
+            Kesako ?
           </h3>
           <div className="">
-            <p className="pb-2">
-              Un tout grand merci également à l'ensemble des photographes qui
-              ont bien voulu se prêter aux jeux et proposer leurs photos pour
-              l'application : Adrien Goffin, Aurélie Robise, F. Gries, Karl
-              Gillebert, Lionel Lebon, Simon Aucremanne et Thierry Kinet.
-            </p>
-
             <p className="pb-2">
               Cette application a été créée par{' '}
               <a
@@ -117,6 +140,32 @@ const Learn = (): React.ReactNode => {
                 GitHub
               </a>
               .
+            </p>
+
+            <p className="pb-2">
+              Vous pouvez contribuer à cette application en remontant vos{' '}
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe8jvJ6d8oDc7l_PrgGx4LVjg-jvWD2-_msf-bpdDWvLAlAqQ/viewform?usp=dialog"
+                title="Remontez vos feedbacks"
+                className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
+              >
+                feedbacks
+              </a>{' '}
+              d'utilisation.
+            </p>
+          </div>
+        </div>
+
+        <div className="pt-10">
+          <h3 className="text-2xl font-medium text-slate-900 mb-2 uppercase">
+            Remerciements
+          </h3>
+          <div className="">
+            <p className="pb-2">
+              Un tout grand merci à l'ensemble des photographes qui ont bien
+              voulu se prêter au jeu et proposer leurs photos pour l'application
+              : Adrien Goffin, Aurélie Robise, F. Gries, Karl Gillebert, Lionel
+              Lebon, Simon Aucremanne et Thierry Kinet.
             </p>
           </div>
         </div>

@@ -29,9 +29,9 @@ const Home = (): React.ReactNode => {
                 <p className="pb-2">
                   Aidez-vous lors du comptage sur le terrain ! Cette application
                   vous permet en quelques clics de garder le compte des
-                  individus que vous avez croisé lors de vos soirées pluvieuses.
-                  Une fois rentré·e au chaud, vous pourrez encoder les
-                  observations de votre site dans le projet{' '}
+                  individus que vous avez croisé lors de vos soirées pluvieuses,
+                  comme un bloc-note numérique. Une fois rentré·e au chaud, vous
+                  pourrez encoder les observations de votre site dans le projet{' '}
                   <a
                     href="https://observations.be/projects/16/locations/?"
                     title="Projet sur Observations.be"
@@ -52,7 +52,7 @@ const Home = (): React.ReactNode => {
                 <p className="pb-2">
                   Au début de chaque sortie, n'oubliez pas de démarrer une
                   nouvelle session lors d'un nouveau comptage. Cliquez sur le
-                  "+" en haut à droite dans l'onglet "Compter".{' '}
+                  "⟳" en haut à droite dans l'onglet "Compter".{' '}
                   <NavLink
                     to="/about"
                     title="A propos de l'application"
@@ -68,21 +68,6 @@ const Home = (): React.ReactNode => {
                     plateforme observations.be !
                   </em>
                 </p>
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <div className="flex items-center">
-                <div className="flex-auto">
-                  <h3 className="flex-auto text-2xl font-medium text-slate-900 mb-2 uppercase">
-                    Kesako ?
-                  </h3>
-                  <p>
-                    Cette application permet aux volontaires de comptabiliser
-                    les batraciens rencontrés lors des sauvetages. Il s'agit
-                    d'un bloc note numérique qui est toujours dans notre poche.
-                  </p>
-                </div>
               </div>
             </div>
 

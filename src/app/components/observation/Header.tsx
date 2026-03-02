@@ -6,7 +6,8 @@ import WeatherPicker from './components/WeatherPicker';
 import ModalClipboard from './components/ModalClipboard';
 import HeaderAction from './components/Action';
 import ModalSettings from './components/ModalSettings';
-import { GoCalendar, GoGear, GoNumber, GoPlusCircle } from 'react-icons/go';
+import { GoCalendar, GoGear, GoNumber } from 'react-icons/go';
+import { RiResetLeftLine } from 'react-icons/ri';
 import { TbTemperatureCelsius } from 'react-icons/tb';
 import { TiWeatherShower } from 'react-icons/ti';
 import { readableDate } from '../../../utils/date';
@@ -170,7 +171,7 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
             header={
               <>
                 <div className="text-2xl pr-4">
-                  <GoPlusCircle role="presentation" size="24" />
+                  <RiResetLeftLine role="presentation" size="24" />
                 </div>
                 <div>
                   <h3 className="flex-auto text-2xl mr-10 font-medium text-slate-900 uppercase">

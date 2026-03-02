@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { GoCopy, GoGear, GoPlusCircle } from 'react-icons/go';
+import { GoCopy, GoGear } from 'react-icons/go';
+import { RiResetLeftLine } from 'react-icons/ri';
 
 type ObsHeaderProps = {
   onAction: (type: null | 'session' | 'weather' | 'copy' | 'settings') => void;
@@ -49,7 +50,7 @@ const HeaderAction = (props: ObsHeaderProps): React.ReactNode => {
             onAction('session');
           }}
         >
-          <GoPlusCircle
+          <RiResetLeftLine
             role="presentation"
             size="24"
             title="Nouvelle session de comptage"
