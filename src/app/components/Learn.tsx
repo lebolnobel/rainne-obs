@@ -101,7 +101,7 @@ const Learn = (): React.ReactNode => {
             </div>
           </div>
           <figure
-            className="sm:block sm:col-span-3 flex text-center mx-auto w-full"
+            className="hidden sm:block sm:col-span-3 text-center mx-auto w-full"
             role="none"
           >
             <img
@@ -157,7 +157,7 @@ const Learn = (): React.ReactNode => {
             </div>
           </div>
           <figure
-            className="sm:block sm:col-span-3 flex text-center mx-auto w-full"
+            className="hidden sm:block sm:col-span-3 text-center mx-auto w-full"
             role="none"
           >
             <img
@@ -168,6 +168,48 @@ const Learn = (): React.ReactNode => {
             />
             <figcaption className="sr-only">Nos amphibiens</figcaption>
           </figure>
+        </div>
+
+        <div className="pt-10 grid max-w-screen-xl mx-auto sm:gap-8 sm:grid-cols-12">
+          <div className="mr-auto sm:col-span-12">
+            <h3 className="flex-auto text-2xl font-medium text-slate-900 mb-2 uppercase">
+              Biosécurité
+            </h3>
+            <p className="font-light pb-2">
+              Comment aller sur le terrain tout en se protégeant (nous-même) et
+              en protégeant les amphibiens&nbsp;? Quelles sont les bonnes
+              pratiques à respecter&nbsp;? Ce n'est pas toujours simple de bien
+              faire, surtout avec tous les différents pathogènes connus et qui
+              sont mortels pour les batraciens s'ils venaient à y être
+              confrontés.
+            </p>
+            <p className="font-light pb-2">
+              On pourrait résumer par : désinfecter votre matériel (chaussures,
+              seaux, etc) et vos mains avant de vous rendre sur le terrain.
+            </p>
+
+            <div className="space-x-4 mt-6 text-base font-medium">
+              <div className="flex-auto flex space-x-4">
+                <a
+                  href="https://rainne.natagora.be/simpliquer/biosecurite"
+                  title="En savoir plus sur la biosécurité"
+                  className="px-6 py-2 inline-flex font-semibold rounded-md border border-slate-200 hover:bg-slate-100 hover:shadow focus:outline-none focus:ring-2 focus:ring-natagora/40"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Biosécurité{' '}
+                  <span className="sr-only">
+                    (ouvre dans une nouvelle fenêtre)
+                  </span>
+                  <GoArrowRight
+                    role="presentation"
+                    size="24"
+                    className="ml-2"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mt-10 flex flex-wrap mb-10 rounded-lg bg-red-100 bg-opacity-25 p-4 text-slate-700">
