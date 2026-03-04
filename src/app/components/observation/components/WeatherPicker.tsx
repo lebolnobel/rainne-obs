@@ -16,8 +16,8 @@ const WeatherPicker = <T extends string>(
     <div className="flex items-center justify-center md:p-4 p-2">
       <div className="grid grid-cols-4 gap-2 w-full h-20">
         {opts.map((type) => {
-          const Icon = Weather[type].icon;
-          const label = Weather[type].name;
+          const Icon = Weather[type]?.icon;
+          const label = Weather[type]?.name;
 
           return (
             <button

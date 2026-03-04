@@ -82,15 +82,15 @@ const ObsHeader = (props: ObsHeaderProps): React.ReactNode => {
 
   const actions = [
     {
-      icon: Weather[weather.wind].icon,
+      icon: Weather[weather.wind]?.icon,
       label: 'Vent',
-      value: Weather[weather.wind].name,
+      value: Weather[weather.wind]?.name,
       action: () => setModal('weather'),
     },
     {
-      icon: Weather[weather.rain].icon,
+      icon: Weather[weather.rain]?.icon,
       label: 'Précipitations',
-      value: Weather[weather.rain].name,
+      value: Weather[weather.rain]?.name,
       action: () => setModal('weather'),
     },
     {
