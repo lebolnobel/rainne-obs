@@ -5,6 +5,7 @@
   "short_name": "Rainne obs",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
+  "default_locale": "fr",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
@@ -27,4 +28,3 @@
     }
   ]
 }
-

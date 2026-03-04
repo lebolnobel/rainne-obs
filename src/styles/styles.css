@@ -624,11 +624,6 @@ video {
   inset: 0px;
 }
 
-.inset-x-2\/4 {
-  left: 50%;
-  right: 50%;
-}
-
 .-right-1 {
   right: -0.25rem;
 }
@@ -671,10 +666,6 @@ video {
 
 .top-6 {
   top: 1.5rem;
-}
-
-.top-0 {
-  top: 0px;
 }
 
 .z-0 {
@@ -723,11 +714,6 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
 }
 
 .my-2 {
@@ -843,14 +829,6 @@ video {
   margin-top: 2rem;
 }
 
-.-ml-4 {
-  margin-left: -1rem;
-}
-
-.mb-12 {
-  margin-bottom: 3rem;
-}
-
 .block {
   display: block;
 }
@@ -962,6 +940,10 @@ video {
   width: 0.5rem;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -988,10 +970,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .min-w-0 {
@@ -1569,11 +1547,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .pb-12 {
@@ -2291,16 +2264,16 @@ body {
     position: relative;
   }
 
+  .sm\:col-span-12 {
+    grid-column: span 12 / span 12;
+  }
+
   .sm\:col-span-3 {
     grid-column: span 3 / span 3;
   }
 
   .sm\:col-span-9 {
     grid-column: span 9 / span 9;
-  }
-
-  .sm\:col-span-12 {
-    grid-column: span 12 / span 12;
   }
 
   .sm\:mx-4 {

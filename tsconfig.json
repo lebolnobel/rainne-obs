@@ -20,7 +20,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "types": ["./node_modules/network-information-types"]
+    "types": [
+      "./node_modules/network-information-types",
+      "vite-plugin-pwa/client"
+    ]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

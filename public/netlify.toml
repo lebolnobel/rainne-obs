@@ -3,7 +3,23 @@
   to = "/index.html"
   status = 200
   force = false
+
 [[headers]]
   for = "/img/*"
   [headers.values]
     Cache-Control = "public, s-max-age=604800"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/registerSW.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "no-cache"

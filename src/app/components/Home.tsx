@@ -58,14 +58,14 @@ const Home = (): React.ReactNode => {
                     title="A propos de l'application"
                     className="underline text-natagora font-medium decoration-natagora/50 hover:decoration-2 hover:text-natagora/80 transition duration-400 ease-in-out hover:decoration-inherit focus:outline-none focus:ring-2 focus:ring-natagora/40"
                   >
-                    En savoir plus ?
+                    En savoir plus&nbsp;?
                   </NavLink>
                 </p>
 
                 <p className="pb-2">
                   <em>
                     Cette application ne remplace en aucun cas l'encodage sur la
-                    plateforme observations.be !
+                    plateforme observations.be&nbsp;!
                   </em>
                 </p>
               </div>
